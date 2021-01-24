@@ -1,11 +1,11 @@
 # HDU 2222
 
-## Description
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/HDU-2222)
 - [HDU](http://acm.hdu.edu.cn/showproblem.php?pid=2222)
 
-## Solution
+## 解法
 
 This is a practice of <abbr title="Aho-Corasick Automaton algorithm">ACAM</abbr>, a string searching algorithm which is able to search multi model strings at the same time with the help of a trie. It uses the same way as <abbr title="Knuth-Morris-Pratt string searching algorithm">KMP</abbr> does. 
 
@@ -13,6 +13,6 @@ As the first step, we put all the model strings in a trie so that we can jump to
 
 P. S. Okay! I admit that I'm preparing for my last <abbr title="Guangdong Olympiad in Informatics">GDOI</abbr>. But I do hope I can complete understand these algorithms. In my opinion, ACAM is much easier than KMP! 
 
-## Code
+## 代码
 
-- [Solution](HDU.2222.0.cpp)
+- [正解](HDU.2222.0.cpp)

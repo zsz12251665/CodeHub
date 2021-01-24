@@ -1,11 +1,11 @@
 # HDU 1686
 
-## Description
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/HDU-1686)
 - [HDU](http://acm.hdu.edu.cn/showproblem.php?pid=1686)
 
-## Solution
+## 解法
 
 This problem is a simple practice of <abbr title="Knuth-Morris-Pratt string searching algorithm">KMP</abbr>, which I have been trying to understand it and use it since last weekend. However, even until now I still have some problems understanding this damn code. So let's just take it easy. 
 
@@ -19,6 +19,6 @@ By the way, this problem is as same as <a href="/codes/?oj=POJ&pid=3461">POJ 346
 
 P. S. It is very odd that Pascal passed POJ 3461 but not this problem! 
 
-## Code
+## 代码
 
-- [Solution](HDU.1686.0.cpp)
+- [正解](HDU.1686.0.cpp)

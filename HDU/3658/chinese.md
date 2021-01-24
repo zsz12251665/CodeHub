@@ -1,11 +1,11 @@
 # HDU 3658
 
-## Description
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/HDU-3658)
 - [HDU](http://acm.hdu.edu.cn/showproblem.php?pid=3658)
 
-## Solution
+## 解法
 
 In this problem, we will talk about how to use the power of the matrix to speed up <abbr title="dynamic programming">dp</abbr> algorithm. 
 
@@ -21,6 +21,6 @@ After constructing the transition matrix, we could know that if we multiply the 
 
 P. S. I'm sorry that the solution was still not fast enough for Pascal to pass it while C++ managed though I've sorted <data value="v{m}"></data>. Please pay attention. 
 
-## Code
+## 代码
 
-- [Solution](HDU.3658.0.cpp)
+- [正解](HDU.3658.0.cpp)

@@ -1,11 +1,11 @@
 # HDU 1213
 
-## Description
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/HDU-1213)
 - [HDU](http://acm.hdu.edu.cn/showproblem.php?pid=1213)
 
-## Solution
+## 解法
 
 This problem required a union find set. 
 
@@ -13,6 +13,6 @@ The union find set is a data structure which can merge two disjoint sets and det
 
 After merging, we just need to scan all the elements and count the number of the roots to solve the problem. 
 
-## Code
+## 代码
 
-- [Solution](HDU.1213.0.cpp)
+- [正解](HDU.1213.0.cpp)

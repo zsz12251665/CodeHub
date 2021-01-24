@@ -1,11 +1,11 @@
 # HDU 3549
 
-## Description
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/HDU-3549)
 - [HDU](http://acm.hdu.edu.cn/showproblem.php?pid=3549)
 
-## Solution
+## 解法
 
 As the title describes, this problem is a template of the maximum flow in a network. There are 4 types of algorithm to solve this problem, which are improved step by step.
 
@@ -25,7 +25,7 @@ The last one is the ISAP Algorithm. <abbr title="Improved Shortest Augment Path"
 
 There is also an optimization to ISAP, which is called the gap optimization. Because ISAP update the levels when running DFS, there might be some situations that there is no augment path anymore but ISAP has not noticed that the end point is unreachable from the start point yet until the start point has a big enough level. So we record the number of the points on each level and when a gap is found (a level has no points left), we know that the start point and the end point is no longer connected. This is because for while updating, the level of a point must be increasing.
 
-## Code
+## 代码
 
 - [Ford-Fulkerson](HDU.3549.0.cpp)
 - [Edmonds-Karp](HDU.3549.1.cpp)
