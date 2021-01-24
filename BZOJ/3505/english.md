@@ -1,26 +1,18 @@
-<h1>BZOJ 3505</h1>
-<p><time>2017-10-23 15:53</time> by zsz12251665</p>
-<section>
-	<h2>Problem</h2>
-	<ul class="buttonList">
-		<a target="_blank" href="https://vjudge.net/problem/HYSBZ-3505"><li>Virtual Judge</li></a>
-		<a target="_blank" href="https://www.lydsy.com/JudgeOnline/problem.php?id=3505"><li>BZOJ</li></a>
-	</ul>
-</section>
-<section>
-	<h2>Solution</h2>
-	<p>First of all, I have to remind you that an <data value="v{n}o{&times;}v{m}"></data> matrix have <data value="o{(}v{n}o{+}c{1}o{)}"></data> columns and <data value="o{(}v{m}o{+}c{1}o{)}"></data> rows. So we make <data value="v{n}o{=}v{n}o{+}c{1}"></data>, <data value="v{m}o{=}v{m}o{+}c{1}"></data> in the following solution. </p>
-	<p>Now we know that there are <data value="v{n}o{}v{m}"></data> points on the matrix. And they can make <data value="f{v{n}o{}v{m}o{}o{(}v{n}o{}v{m}o{-}v{1}o{)}o{}o{(}v{n}o{}v{m}o{-}v{2}o{)}l{}c{6}}"></data> combinations of 3 points in total. But some of the combinations have a kind of situations that the 3 points are on a single line. That can't form a triangle! So we need to pick them up. </p>
-	<p>As we all know, there are <data value="o{(}o{gcd}o{(}o{|}v{a}o{-}v{c}o{|}o{,}o{|}v{b}o{-}v{d}o{|}o{)}o{-}c{1}o{)}"></data> points between the points <data value="o{(}v{a}o{,}v{b}o{)}"></data> and <data value="o{(}v{c}o{,}v{d}o{)}"></data>. So we can enumerate every point, calculate the points between it and <data value="o{(}c{0}o{,}c{0}o{)}"></data> and then pick up these combinations and the combinations that are moved but in the same shape and size. In this way we will get every illegal combinations away. </p>
-</section>
-<section>
-	<h2>Code</h2>
-	<section>
-		<h3>Pascal</h3>
-		<code lang="pas"></code>
-	</section>
-	<section>
-		<h3>C++</h3>
-		<code lang="cpp"></code>
-	</section>
-</section>
+# BZOJ 3505
+
+## Description
+
+- [Virtual Judge](https://vjudge.net/problem/HYSBZ-3505)
+- [黑暗爆炸OJ](https://darkbzoj.tk/problem/3505)
+
+## Solution
+
+First of all, I have to remind you that a $n\times m$ grid have $n+1$ rows and $m+1$ columns which are lines. So we make $n=n+1$, $m=m+1$ in the following solution.
+
+There are $nm$ points in the grid, which can make $\tbinom{nm}{3}$ combinations of 3 points in total. But some of the combinations have their 3 points lying on the same line, which can't form a triangle! We need to pick them up.
+
+The combinations on the same row or the same column is easy to pick up, how about the leaning ones? As we all know, there are $\gcd(|a-c|,|b-d|)-1$ points on the segment between two different points $(a,b)$ and $(c,d)$. So we can enumerate the second point, calculate the points between it and $(0,0)$ and then pick up these combinations as well as the ones that are moved and reflected from the original ones so that all illegal combinations can be removed. For each segment between $(0,0)$ and $(i,j)$, there are $2(n-i)(m-j)$ identical structures in the whole grid ($(0,0)$ and $(i,j)$ as well as $(i,0)$ and $(0,j)$ for each rectangle of $i\times j$).
+
+## Code
+
+- [Solution](BZOJ.3505.0.cpp)

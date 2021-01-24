@@ -1,19 +1,19 @@
 # BZOJ 2818
 
-## Description
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/HYSBZ-2818)
 - [黑暗爆炸OJ](https://darkbzoj.tk/problem/2818)
 
-## Solution
+## 解法
 
-This problem is about number theory. To solve this problem, we are going to need some knowledge about Dirichlet convolution and Mobius inversion.
+本题为数论题。要想解出这题，我们首先要了解狄利克雷卷积与莫比乌斯反演。
 
-First of all, we can try enumerate the prime which is probably the <abbr title="Greatest Common Divider">GCD</abbr> of the numbers. So the answer is
+首先，我们可以枚举所有可能为最大公约数的质数，因此答案为
 
 $$\sum_{p:\text{prime}}\sum_{x=1}^n\sum_{y=1}^n{[\gcd(x,y)=p]}$$
 
-We assume that $x=ip$, $y=jp$ (otherwise they will make no contribution to the answer), then we have
+假设 $x=ip$、$y=jp$（否则其对答案没有贡献），则我们有
 
 $$\begin{aligned}
  &\sum_{x=1}^n\sum_{y=1}^n{[\gcd(x,y)=p]}\\
@@ -21,11 +21,11 @@ $$\begin{aligned}
 =&\sum_{i=1}^{\left\lfloor n\over p\right\rfloor}\sum_{j=1}^{\left\lfloor n\over p\right\rfloor}{\operatorname{e}(\gcd(i,j))}
 \end{aligned}$$
 
-Now it is time to use the Mobius inversion. Because $\operatorname{e}=\operatorname{\mu}*\operatorname{1}$, so
+现在使用莫比乌斯反演。由 $\operatorname{e}=\operatorname{\mu}*\operatorname{1}$ 得
 
 $${\operatorname{e}(\gcd(i,j))}=\sum_{d|\gcd(i,j)}\left(\operatorname{\mu}(d)\operatorname{1}\left(\frac{\gcd(i,j)}{d}\right)\right)=\sum_{d|\gcd(i,j)}\operatorname{\mu}(d)$$
 
-After that, we change the order of the sum, put $d$ after $p$, then
+然后我们调换求和顺序，把 $d$ 放到 $p$ 之后，则
 
 $$\begin{aligned}
  &\sum_{p:\text{prime}}\sum_{i=1}^{\left\lfloor n\over p\right\rfloor}\sum_{j=1}^{\left\lfloor n\over p\right\rfloor}\sum_{d|\gcd(i,j)}\operatorname{\mu}(d)\\
@@ -34,8 +34,8 @@ $$\begin{aligned}
 =&\sum_{p:\text{prime}}\sum_{d=1}^{\left\lfloor n\over p\right\rfloor}{\left(\operatorname{\mu}(d)\left\lfloor n\over pd\right\rfloor^2\right)}
 \end{aligned}$$
 
-Now we can enumerate $p$ and $\left\lfloor n\over pd\right\rfloor$ to calculate the answer in $\operatorname{O}(\operatorname{\pi}(n)\sqrt{n})$, which $\operatorname{\pi}(n)$ is the number of prime numbers in $[1,n]$, with the $\operatorname{O}(n)$ preprocess of the prime numbers and the prefix sum of the $\operatorname{\mu}(d)$. According to the prime number theorem, $\operatorname{O}(\operatorname{\pi}(n))=\operatorname{O}\left(n\over\ln{n}\right)$, so the total time complexity should be around $\operatorname{O}\left(n\sqrt{n}\over\ln{n}\right)$, which just might be available due to the time limit of 10 seconds.
+现在我们可以通过枚举 $p$ 和 $\left\lfloor n\over pd\right\rfloor$ 来在 $\operatorname{O}(\operatorname{\pi}(n)\sqrt{n})$ 内求解，其中 $\operatorname{\pi}(n)$ 为 $[1,n]$ 内的质数个数，另需 $\operatorname{O}(n)$ 来预处理质数与 $\operatorname{\mu}(d)$ 的前缀和。根据素数定理，$\operatorname{O}(\operatorname{\pi}(n))=\operatorname{O}\left(n\over\ln{n}\right)$。因此总时间复杂度约为 $\operatorname{O}\left(n\sqrt{n}\over\ln{n}\right)$，刚刚好能卡进10秒内。
 
-## Code
+## 代码
 
-- [Solution](BZOJ.2818.0.cpp)
+- [正解](BZOJ.2818.0.cpp)
