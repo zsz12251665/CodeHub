@@ -9,7 +9,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>In this problem, we will talk about how to use the power of the matrix to speed up <abbr title="dynamic planning">dp</abbr> algorithm. </p>
+	<p>In this problem, we will talk about how to use the power of the matrix to speed up <abbr title="dynamic programming">dp</abbr> algorithm. </p>
 	<p>The dp array will be like <data value="v{dp}b{v{i}o{,}v{j}o{,}v{c}}"></data>, which means the number of the words when we have chosen the first <data value="v{i}"></data> letters,  with <data value="v{j}"></data> as the last one and <data value="v{c}"></data> which shows if there has been a difference of a pair of neighbour letters which is exactly 32. Now we can write down the state transition formulas: </p>
 	<ul>
 		<li><data value="v{dp}b{v{i}o{,}v{j}o{,}c{0}}o{=}o{&sum;}i{v{j}o{+}c{31}l{}v{k}o{=}v{j}o{-}c{31}}v{dp}b{v{i}o{-}c{1}o{,}v{k}o{,}c{0}}"></data></li>
