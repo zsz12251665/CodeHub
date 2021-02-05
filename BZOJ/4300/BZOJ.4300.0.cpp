@@ -7,11 +7,11 @@ int main()
 {
 	int n, ans = 0;
 	memset(f, 0, sizeof f);
-	scanf("%ld", &n);
+	scanf("%d", &n);
 	for (int i = 0; i < n; ++i)
 	{
 		int a, max_f = -1;
-		scanf("%ld", &a);
+		scanf("%d", &a);
 		for (int j = 0; j < 32; ++j) // Find the length of the longest subsequence that a[i] can append
 			if ((a >> j) % 2 != 0)
 				max_f = max(max_f, f[j]);
@@ -21,6 +21,6 @@ int main()
 			if ((a >> j) % 2 != 0)
 				f[j] = max(f[j], max_f);
 	}
-	printf("%ld", ans);
+	printf("%d", ans);
 	return 0;
 }

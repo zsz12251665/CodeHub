@@ -1,13 +1,13 @@
 #include <cstdio>
 using namespace std;
-const int SIZE = 1e7 + 10;
+const int SIZE = 1e7 + 1;
 int mu[SIZE], prime[SIZE];
 bool isPrime[SIZE];
 int pre[SIZE]; // The prefix sum of mu[i]
 int main()
 {
 	int n, size = 0;
-	scanf("%ld", &n);
+	scanf("%d", &n);
 	for (int i = 2; i <= n; ++i)
 		isPrime[i] = true;
 	mu[1] = 1;
