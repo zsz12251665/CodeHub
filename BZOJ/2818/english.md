@@ -31,10 +31,10 @@ $$\begin{aligned}
  &\sum_{p:\text{prime}}\sum_{i=1}^{\left\lfloor n\over p\right\rfloor}\sum_{j=1}^{\left\lfloor n\over p\right\rfloor}\sum_{d|\gcd(i,j)}\operatorname{\mu}(d)\\
 =&\sum_{p:\text{prime}}\sum_{d=1}^{\left\lfloor n\over p\right\rfloor}{\left(\operatorname{\mu}(d)\sum_{i=1}^{\left\lfloor n\over p\right\rfloor}{[d|i]}\sum_{j=1}^{\left\lfloor n\over p\right\rfloor}{[d|j]}\right)}\\
 =&\sum_{p:\text{prime}}\sum_{d=1}^{\left\lfloor n\over p\right\rfloor}{\left(\operatorname{\mu}(d)\left\lfloor\left\lfloor n\over p\right\rfloor\over d\right\rfloor^2\right)}\\
-=&\sum_{p:\text{prime}}\sum_{d=1}^{\left\lfloor n\over p\right\rfloor}{\left(\operatorname{\mu}(d)\left\lfloor n\over pd\right\rfloor^2\right)}
+=&\sum_{p:\text{prime}}\sum_{d=1}^{\left\lfloor n\over p\right\rfloor}{\left(\operatorname{\mu}(d)\left\lfloor n\over p d\right\rfloor^2\right)}
 \end{aligned}$$
 
-Now we can enumerate $p$ and $\left\lfloor n\over pd\right\rfloor$ to calculate the answer in $\operatorname{O}(\operatorname{\pi}(n)\sqrt{n})$, which $\operatorname{\pi}(n)$ is the number of prime numbers in $[1,n]$, with the $\operatorname{O}(n)$ preprocess of the prime numbers and the prefix sum of the $\operatorname{\mu}(d)$. According to the prime number theorem, $\operatorname{O}(\operatorname{\pi}(n))=\operatorname{O}\left(n\over\ln{n}\right)$, so the total time complexity should be around $\operatorname{O}\left(n\sqrt{n}\over\ln{n}\right)$, which just might be available due to the time limit of 10 seconds.
+Now we can enumerate $p$ and $\left\lfloor n\over p d\right\rfloor$ to calculate the answer in $\operatorname{O}(\operatorname{\pi}(n)\sqrt{n})$, which $\operatorname{\pi}(n)$ is the number of prime numbers in $[1,n]$, with the $\operatorname{O}(n)$ preprocess of the prime numbers and the prefix sum of the $\operatorname{\mu}(d)$. According to the prime number theorem, $\operatorname{O}(\operatorname{\pi}(n))=\operatorname{O}\left(n\over\ln{n}\right)$, so the total time complexity should be around $\operatorname{O}\left(n\sqrt{n}\over\ln{n}\right)$, which just might be available due to the time limit of 10 seconds.
 
 ## Code
 
