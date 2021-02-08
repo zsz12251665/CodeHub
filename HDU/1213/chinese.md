@@ -7,11 +7,11 @@
 
 ## 解法
 
-This problem required a union find set. 
+本题需使用并查集。
 
-The union find set is a data structure which can merge two disjoint sets and determine if two elements are in the same set. Each element has a pointer, which is its "father". So you can find the root of the set in <data value="o{O}o{(}o{lg}v{n}o{)}"></data>. At the same time, because it is a set, so we can put the pointer to the root after finding the root. It can reduce the time when you find the root of this element again. The time complexity of the merging is <data value="o{O}o{(}c{1}o{)}"></data>. You just need to set the pointer of the root of the first set to the root of the second set. 
+并查集是一种支持合并两个不相交集合与查询两元素是否处于同一集合的数据结构。每个元素都有一个指针，指向其“父结点”。你可以在 $\operatorname{O}(\log{n})$ 内找出集合的根节点。同时，由于我们维护的是集合，我们可以在查询到根节点后将指针直接指向根节点，以减少未来重复找根节点的时间。合并操作的时间复杂度为 $\operatorname{O}(1)$。你只需要将第一个集合的根节点的指针指向第二个集合的根节点即可。
 
-After merging, we just need to scan all the elements and count the number of the roots to solve the problem. 
+合并后，扫描一遍所有元素，统计根节点数目即可解决此题。
 
 ## 代码
 

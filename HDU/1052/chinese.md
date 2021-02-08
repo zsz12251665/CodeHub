@@ -7,9 +7,9 @@
 
 ## 解法
 
-We can use a greedy algorithm to solve this problem. First of all, we can sort all of Tian's horses all of the king's horses. Then we compare Tian's worst horse with the king's worst one. If it is better, than use this horse to defeat that one because it is the most useless one. If Tian's horse is worse than the king's, then use it to have a race with the king's best horse. Of course Tian will lose this race, but the king also waste his best horse on Tian's worst one. If they are equally bad, then we'll compare their best ones. If Tian's is better than the king's, let Tian's best horse defeat the king's best one. If Tian's isn't so good as the king's, then use Tian's worst horse to waste the king's best one because no horse can defeat it. Using the worst horse to waste it can reduce the cost. If the king's horse is as good as Tian's, Tian should also use his worst horse to waste the king's best one. But why? 
+本题贪心可做。首先，将田忌与齐王的马分别排序。比较他们最差的马。如果田忌的马能赢，那么则用其击败齐王最差的马。这匹马最没用，用来击败齐王最差的马不会浪费。若会输，则用其对阵齐王最好的马。虽然他会输，但也消耗掉了齐王最好的马。如果两匹马水平一样，则比较他们最好的马。若田忌的马较好，则用其击败齐王最好的马。即使田忌第二好的马也比齐王最好的马强，也不会有区别（它们都能击败齐王所有的马）。如果田忌最好的马不如秦王的，则用最差的马消耗掉齐王最好的马，因为无马能击败它。用最差的马对阵可最小化损失。如果二者最好的马水平也一样，那么田忌也应用最差的马消耗掉齐王最好的马。下述原因：
 
-Let's pick Tian's and the king's worst and best horses out, if they have no more horses, anyhow they choose, the result must be zero, which means both of them can't earn anything from each other. If they have more horses, Tian can use his second worst horses to beat the king's worst one and use his best horse to beat king's second best horse to free his second best horse. It is like Tian let his second worst horses defeat the king's second best one. What a worthy deal! Continue in this way, Tian can earn more money(or lose less money) than ever before. 
+考虑除掉二者最好的马和最坏的马。如果他们没有别的马了，无论如何结果都是平局。如果有更多的马，田忌可以用第二差的马击败齐王最差的马，用最好的马击败齐王第二好的马。这相当于用其第二差的马击败了齐王第二好的马。这笔买卖稳赢。
 
 ## 代码
 

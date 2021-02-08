@@ -7,7 +7,7 @@
 
 ## Solution
 
-This problem is as same as <a href="/codes/?oj=HDU&pid=1213">HDU 1213</a>, which required a union find set too. So I'm not going to write the solution here. 
+This problem is as same as [HDU 1213](/HDU/1213/english.md), which required a disjoint set too. So I'm not going to write the solution here.
 
 ## Code
 

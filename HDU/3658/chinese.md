@@ -7,19 +7,25 @@
 
 ## 解法
 
-In this problem, we will talk about how to use the power of the matrix to speed up <abbr title="dynamic programming">dp</abbr> algorithm. 
+在这道题中，我们将提及如何使用矩阵的幂来加速<abbr title="动态规划">dp</abbr>。
 
-The dp array will be like <data value="v{dp}b{v{i}o{,}v{j}o{,}v{c}}"></data>, which means the number of the words when we have chosen the first <data value="v{i}"></data> letters,  with <data value="v{j}"></data> as the last one and <data value="v{c}"></data> which shows if there has been a difference of a pair of neighbour letters which is exactly 32. Now we can write down the state transition formulas: 
+dp矩阵形如 $f_{i,j,c}$，表示前 $i$ 个字母中，以 $j$ 作为最后一个字母的单词数量（$c$ 表示是否存在一对相邻字母之差恰为32）。现在我们可以写出状态转移方程：
 
-If we roll the dp array, change the difference of 'Z' and 'a' into 1 and then combine <data value="v{j}"></data> and <data value="v{c}"></data> as <data value="o{(}c{52}o{}v{c}o{+}v{j}o{)}"></data>, we'll have these formulas: 
+- $f_{i,j,0}=\sum_{k=j-31}^{k+31}f_{i-1,k,0}$
+- $f_{i,j,1}=f_{i-1,j\plusmn32,0}+\sum_{k=j-32}^{k+32}f_{i-1,k,1}$
 
-Obviously, it took us <data value="o{O}o{(}c{2}o{&times;}c{52}o{)}"></data> to finish a transition. Though the total time complexity is just <data value="o{O}o{(}v{m}o{)}"></data>, the constant and the multitasks will not allow us to pass the problem. So we need the power of the matrix to speed up. But how can we do it? 
+如果我们采用滚动数组，将 `'Z'` 和 `'a'` 之差设为1，并将 $j$ 和 $c$ 组合成 $52c+j$，则有下式：
 
-We will construct a transition matrix. For a transition matrix <data value="v{M}"></data>, <data value="v{M}b{v{x}o{,}v{y}}"></data> is the coefficient of <data value="v{dp}b{v{y}}"></data> in <data value="v{dp}b{v{x}}"></data>. Let's take Fibonacci sequence as an example. The transition matrix is <data value="o{[}m{c{1}l{}c{1}}o{&nbsp;}m{c{1}l{}c{0}}o{]}"></data>. Here, <data value="v{dp}b{v{i}o{,}c{0}}"></data> means <data value="v{F}b{v{i}}"></data> while <data value="v{dp}b{v{i}o{,}c{1}}"></data> means <data value="v{F}b{v{i}o{-}c{1}}"></data>. So according to the transition matrix, the transition formulas are <data value="v{dp}b{v{i}o{,}c{0}}o{=}c{1}o{&sdot;}v{dp}b{v{i}o{-}c{1}o{,}c{0}}o{+}c{1}o{&sdot;}v{dp}b{v{i}o{-}c{1}o{,}c{1}}o{=}v{dp}b{v{i}o{-}c{1}o{,}c{0}}o{+}v{dp}b{v{i}o{-}c{1}o{,}c{1}}"></data> and <data value="v{dp}b{v{i}o{,}c{1}}o{=}c{1}o{&sdot;}v{dp}b{v{i}o{-}c{1}o{,}c{0}}o{+}c{0}o{&sdot;}v{dp}b{v{i}o{-}c{1}o{,}c{1}}o{=}v{dp}b{v{i}o{-}c{1}o{,}c{0}}"></data>. They just mean <data value="v{F}b{v{i}}o{=}v{F}b{v{i}o{-}c{1}}o{+}v{F}b{v{i}o{-}c{2}}"></data> and <data value="v{F}b{v{i}o{-}c{1}}o{=}v{F}b{v{i}o{-}c{1}}"></data>. 
+- $f^*_j=\sum_{k=j-25}^{k+25}f_k$
+- $f^*_{j+52}=f_{j\plusmn26}+\sum_{k=j-26}^{k+26}f_{k+52}$
 
-After constructing the transition matrix, we could know that if we multiply the matrix with the states array, we can finish the transition once. So we need to do it <data value="v{m}"></data> times. According to the associative property, we can use the power of the matrix, which is just <data value="o{O}o{(}o{lg}v{m}o{)}"></data>, to speed it up. This is how we speed up dp algorithm with the power of matrix. 
+显然，每次转移需要 $\operatorname{O}(2\times52)$ 的时间。尽管总时间复杂度仅为 $\operatorname{O}(m)$，常数和多组样例还是会把我们卡掉。因此我们需要矩阵的幂来加速运算。但要怎么做呢？
 
-P. S. I'm sorry that the solution was still not fast enough for Pascal to pass it while C++ managed though I've sorted <data value="v{m}"></data>. Please pay attention. 
+我们可以构造一个转移矩阵。对于一个转移矩阵 $M$，$M_{x,y}$ 是 $f_x$ 中 $f_y$ 的系数。以斐波那契数列为例。转移矩阵为 $\begin{bmatrix}1&1\\1&0\end{bmatrix}$。此处 $f_{i,0}$ 表示 $F_i$，$f_{i,1}$ 表示 $F_{i-1}$。由转移矩阵可得状态转移方程为
+
+$$\begin{bmatrix}F_{i+1}\\F_i\end{bmatrix}=\begin{bmatrix}f_{i+1,0}\\f_{i+1,1}\end{bmatrix}=\begin{bmatrix}1&1\\1&0\end{bmatrix}\begin{bmatrix}f_{i,0}\\f_{i,1}\end{bmatrix}=\begin{bmatrix}f_{i,0}+f_{i,1}\\f_{i,0}\end{bmatrix}=\begin{bmatrix}F_i+F_{i-1}\\F_i\end{bmatrix}$$
+
+在构造出转移矩阵后，我们可知，每将矩阵与状态数组成在一起，就完成了一次状态转移。我们只需重复 $m$ 次即可。由结合律得，我们可以通过仅需 $\operatorname{O}(\log m)$ 的矩阵快速幂来加速运算。
 
 ## 代码
 

@@ -7,9 +7,7 @@
 
 ## Solution
 
-This problem is solved in a clever way to use the union find set. Rather than each element, we maintain the relationship of the prefix sum so that the sum from the <data value="v{A}b{v{i}}"></data>-th one to the <data value="v{B}b{v{i}}"></data>-th one can be translated to the difference of the prefix sum to the <data value="o{(}v{A}b{v{i}}o{-}c{1}o{)}"></data>-th and the prefix sum to the <data value="v{B}}b{v{i}}"></data>-th. Now you can use the weighed union find set to maintain the prefix sums. 
-
-P. S. I still cannot understand why the Pascal Code got <abbr title="Wrong Answer">WA</abbr>. I use the same algorithm as the C++ one! 
+This problem is solved in a clever way to use the disjoint set. Rather than each element, we maintain the relationship of the prefix sum so that the sum from the $A_i$-th one to the $B_i$-th one can be translated to the difference of the prefix sum to the $(A_i-1)$-th and the prefix sum to the $B_i$-th. Now you can use the weighed disjoint set to maintain the prefix sums.
 
 ## Code
 

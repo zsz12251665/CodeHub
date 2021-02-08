@@ -7,7 +7,7 @@
 
 ## 解法
 
-This problem is completely as same as <a href="/codes/?oj=POJ&pid=1928">POJ 1928</a>, which is similar to <a href="/codes/?oj=NOIP&pid=2004J2">NOIP 2004J2</a> too. You can go there to find the solution. 
+这道题和 [POJ 1928](/POJ/1928/chinese.md) 完全一样，都脱胎于 [NOIP 2004J2](/NOIP/2004J2/chinese.md)。请转至其查看解法。
 
 ## 代码
 

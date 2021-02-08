@@ -7,9 +7,7 @@
 
 ## 解法
 
-This problem is solved in a clever way to use the union find set. Rather than each element, we maintain the relationship of the prefix sum so that the sum from the <data value="v{A}b{v{i}}"></data>-th one to the <data value="v{B}b{v{i}}"></data>-th one can be translated to the difference of the prefix sum to the <data value="o{(}v{A}b{v{i}}o{-}c{1}o{)}"></data>-th and the prefix sum to the <data value="v{B}}b{v{i}}"></data>-th. Now you can use the weighed union find set to maintain the prefix sums. 
-
-P. S. I still cannot understand why the Pascal Code got <abbr title="Wrong Answer">WA</abbr>. I use the same algorithm as the C++ one! 
+这道题可以巧妙地用并查集解决。我们不维护每个元素，而是维护前缀和。这样就可以把第 $A_i$ 个到第 $B_i$ 个元素的和转换为前 $(A_i-1)$ 个元素的前缀和与前 $B_i$ 个元素的前缀和之差。现在你可以通过带权并查集来维护前缀和了。
 
 ## 代码
 

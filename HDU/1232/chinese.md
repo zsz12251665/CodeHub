@@ -7,7 +7,7 @@
 
 ## 解法
 
-This problem is as same as <a href="/codes/?oj=HDU&pid=1213">HDU 1213</a>, which required a union find set too. So I'm not going to write the solution here. 
+本题和 [HDU 1213](/HDU/1213/chinese.md) 几乎一摸一样，都要用到并查集。这里就偷懒不写了。
 
 ## 代码
 

@@ -7,23 +7,32 @@
 
 ## 解法
 
-As the title describes, this problem is a template of the maximum flow in a network. There are 4 types of algorithm to solve this problem, which are improved step by step.
+正如题目所描述的，这道题是一道网络流的最大流模板题。该问题共有4种逐步改进的算法。
 
-The first one is the Ford-Fulkerson algorithm. Ford-Fulkerson is based on an idea that we can keep adding new flows until there is no flow available. The following code provided is using <abbr title="Depth-First Search">DFS</abbr> as the searching function. Sometimes the flow you find might be different from the maximum flow so we might need to revert some flows (or part of them). So we build inverse edges to revert the flow. Different from the normal edges, the capacity of the inverse edges is set to 0 by default. When you find a flow, subtract it from the capacity of the edges it passed and add it to the ones of their inverse edges in order to make sure the sum of their capacity is the same.
+### Ford-Fulkerson
 
-P. S. Using DFS directly is certainly not a good idea here. The DFS version of Ford-Fulkerson is the only one which failed to pass this problem. It got a <abbr title="Time Limit Exceeded">TLE</abbr>.
+第一种是 Ford-Fulkerson 算法。Ford-Fulkerson 基于这样一个思想：我们可以不断增加新流程，直到没有可用流程为止。代码使用 <abbr title="深度优先搜索">DFS</abbr> 作为搜索函数。有时，目前发现的流可能与最大流不同，因此我们可能需要还原某些流（或其中一部分）。因此，我们需要建立反向边以还原流。与正向边不同，反向边的容量默认为0。当找到增广路时，从其通过的边的容量中减去它，然后将其添加到其反向边中，以确保两边流量总和不变。
 
-The second one is the Edmonds-Karp algorithm. Edmonds-Karp shares the same idea with Ford-Fulkerson (In fact, Ford-Fulkerson is a method rather than an algorithm). The only improvement is that Edmonds-Karp uses <abbr title="Breadth-First Search">BFS</abbr> as the searching function. However, since BFS has a more stable time complexity as well as a non-recursive procedure, it is a much better idea than using DFS. The time complexity of Edmonds-Karp is <data value="o{O}o{(}v{n}o{}v{m}p{c{2}}o{)}"></data>, which <data value="v{n}"></data> is the number of the points and <data value="v{m}"></data> is the number of edges (These definitions will be applied to the following algorithm as well). Every time you run a BFS, at least one edge should be exhausted. So a BFS with in <data value="o{O}o{(}v{n}o{}v{m}o{)}"></data> could be executed at most <data value="o{O}o{(}v{m}o{)}"></data> times.
+注：这里直接使用DFS并不是个好主意。DFS版本的Ford-Fulkerson是本题唯一一份没有通过测试的代码。它 <abbr title="超出时间限制">TLE</abbr> 了。
 
-The third one is the Dinic's algorithm. Dinic is more effective with a <data value="o{O}o{(}v{n}p{c{2}}o{}v{m}o{)}"></data> time complexity. We know that some flows might be independent to each other. So instead of searching for only one augment path in a BFS, Dinic finds multi augment paths within one BFS. It uses a BFS from the end point to split the network into several levels. And then a DFS is used to search augment paths by jumping from high levels to low levels. However, the level of a point might change after some edges exhausted. So when DFS cannot find a new augment path to enlarge the flow, we will renew the levels by running another BFS until we cannot reach the start point from the end point with edges not exhausted anymore.
+### Edmonds-Karp
 
-I suppose there is another way to understand Dinic. It improved the way how DFS searches in Ford-Fulkerson. Instead of searching blindly, the BFS from the end point splits the network into several levels which show the shortest distance from any point to the ending point so that we can use it as a compass when running DFS. Both the DFS and BFS part take <data value="o{O}o{(}v{n}o{}v{m}o{)}"></data> to run. And every time we cannot find a new augment path it means all the edges connected to a certain point or more has been exhausted. There are <data value="v{n}"></data> points in the graph, so the time complexity should be <data value="o{O}o{(}v{n}p{c{2}}o{}v{m}o{)}"></data>.
+第二种是 Edmonds-Karp 算法。Edmonds-Karp 与 Ford-Fulkerson 基于相同的思想。（实际上，Ford-Fulkerson 是一种方法而不是一个真正的算法）。唯一的改进之处在于 Edmonds-Karp 使用了 <abbr title="广度优先搜索">BFS</abbr> 作为搜索函数。然而由于 BFS 拥有非递归过程的稳定的时间复杂度，它比 DFS 好得多。Edmonds-Karp 的时间复杂度为 $\operatorname{O}(n m^2)$，其中 $n$ 是点的数目，$m$ 是边的数目（该定义亦适用于下面介绍的其它算法）。每次跑 BFS 时，至少有一条边的流量被用尽。因此 $\operatorname{O}(n m)$ 的 BFS 最多需要被执行 $\operatorname{O}(m)$ 次。
 
-There is an optimization to Dinic, called current edge optimization (or cur optimization for short). When you have found an augment path with DFS and start a new DFS, you don't have to start from the very beginning. You can start with the previous augment path by recording the latest edge you visit from every point. Or you can continue to search the other edges with the remain flow rather end the DFS and return the current flow.
+### Dinic
 
-The last one is the ISAP Algorithm. <abbr title="Improved Shortest Augment Path">ISAP</abbr> has the same time complexity as Dinic (just like improvement from Bellman-Ford to <abbr title="Shortest Path Faster Algorithm">SPFA</abbr>), but saves the time running BFS. In fact, the only a few points change their levels when a new BFS is executed in Dinic. And they managed to make the changes in DFS part so that BFS just need to run once to initialize the levels. And the following is how they change the level of point in a DFS: When you reach a point and find that there are no new augment paths through this point anymore, it is time to update its level. According to the second way to understand Dinic, we know that the level shows the distance from the point to the end point. So we just enumerate all the points beside it (directly connected to it) and update its level with the minimum level of those points plus 1.
+第三种是 Dinic 算法。Dinic 有着 $\operatorname{O}(n^2m)$ 的时间复杂度，效率更高。我们知道有些流量相互独立，因此与 BFS 每次找一条增广路不同，Dinic 在一次搜索中同时找多条增广路。它通过一个从汇点开始的 BFS 来把图分成若干层。然后用一个从高层向低层跃进的 DFS 来找增广路。然而点的层级在某些边流量用尽后可能会改变。因此当 DFS 找不到新的增广路时，我们需要重新跑一次 BFS 来更新层级，直到源点至汇点没有办法通过未用尽的边抵达。
 
-There is also an optimization to ISAP, which is called the gap optimization. Because ISAP update the levels when running DFS, there might be some situations that there is no augment path anymore but ISAP has not noticed that the end point is unreachable from the start point yet until the start point has a big enough level. So we record the number of the points on each level and when a gap is found (a level has no points left), we know that the start point and the end point is no longer connected. This is because for while updating, the level of a point must be increasing.
+我觉得我们还有另一种方法来理解 Dinic。它改进了 Ford-Fulkerson 中 DFS 的搜索方式。我们的搜索不再盲目，从汇点出发的 BFS 给全图划分层次，指出了从任意点至汇点的最短路，可以指引 DFS 的方向。DFS 和 BFS 部分均需要 $\operatorname{O}(n m)$ 运行。每次找不到增广路都意味着连到某点的所有边流量均被用尽。途中只有 $n$ 个点，因此时间复杂度为 $\operatorname{O}(n^2m)$。
+
+Dinic 有一种优化，叫做当前弧优化。当你通过 DFS 找到了增广路并开始了一次新的 DFS 时，你不必从头开始。你可以从通过记录每个点最后访问的边，从上一条增广路开始搜索。你也可以先不返回当前流，而是带着剩余流量继续搜索其它边。
+
+### <abbr title="改进版最短增广路">ISAP</abbr>
+
+最后一个是 ISAP 算法。ISAP 和 Dinic 有着同样的时间复杂度（类似于从 Bellman-Ford 到 <abbr title="更快的最短路算法">SPFA</abbr> 的改进），但是节省了跑 BFS 的时间。实际上，在 Dinic 执行一次 BFS 后，只有很少的点改变了层级。ISAP 设法改进了 DFS 部分，使得 BFS 只需要在初始化层级时运行一次即可。以下是其在 DFS 中更改点的层级的方式：当你到达一个点并发现没有新的增广路通过该点时，就可以更新其层级了。根据第二种理解 Dinic 的方式，我们知道层级代表着点到汇点的距离。因此我们可以枚举其所有邻近点（有边与其直接相连），用最小层级加1来更新其层级。
+
+ISAP 也有一种优化方式，叫做 <abbr title="间隙">GAP</abbr> 优化。由于 ISAP 在跑 DFS 时 更新层级，因此可能出现明明已经没有增广路了，但 ISAP 直到源点的层级足够大才注意到汇点已经不可达。因此我们记录每层点的数量。当间隙出现（某一层没有点）时，我们即可知道源点与汇点不连通了。
+
 
 ## 代码
 

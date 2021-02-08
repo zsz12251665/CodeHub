@@ -7,17 +7,17 @@
 
 ## 解法
 
-This problem is a simple practice of <abbr title="Knuth-Morris-Pratt string searching algorithm">KMP</abbr>, which I have been trying to understand it and use it since last weekend. However, even until now I still have some problems understanding this damn code. So let's just take it easy. 
+本题是 <abbr title="Knuth-Morris-Pratt 算法">KMP</abbr> 的一道练习题。
 
-As we all know, a simple way to find a model string in the question string is to enumerate the position of the model string, which is the position of the character which the first character of the model string matches. Then you scan the whole model string to check if every character below matches too. So the time complexity is <data value="o{O}o{(}v{n}o{}v{m}o{)}"></data>, which <data value="v{n}"></data> and <data value="v{m}"></data> means the length of the question string and the model string. However, you can find that some characters does not need to be compared once more. For example, for a model string "ABCA", if you find it unmatched at the third character, there is no need to move the position 1 or 2 or 3 forward because it must not match. That's how KMP works. 
+众所周知，一种简单的在匹配串中找模式串的方法就是枚举模式串的起始位置，也就是与模式串第一个字符相匹配的字符位置。然后顺着模式串扫一遍，检查是否每一个字符都匹配。因此时间复杂度为 $\operatorname{O}(n m)$，其中 $n$ 和 $m$ 分别代表匹配串和模式串的长度。然而，你会发现有些字符没有必要比较多次。比如，对于一个形如 `"ABCA"` 的模式串，如果你在第最后一位发现不匹配，你没必要只把模式串向前移1位，应该直接移4位，因为无论是移1位、2位还是3位，匹配一定不成功。这就是 KMP 的机制。
 
-So KMP is based on a simple rule: when your scanning pointer has reached to a character, you've known what characters before it are. If we can use this information, we don't need to move the pointer back. This makes KMP efficient. The way we make it is the partial match table (what it is and how we calculate it will be introduced later). When we found an unmatched character, the position of the model string we move forward is the difference of the number of the characters we've matched and the partial match value. 
+KMP 基于这样一条简单的规律：当你的指针扫到某一位时，你已经知道了所有在其之前出现的字符。如果我们能妥善地利用这些信息，我们就无须把指针往回移。这就是 KMP 高效的秘诀。做到这一点的办法就是部分匹配值表（下文会详细介绍）。当我们找到一个不匹配的字符时，模式串向前移动的量即为当前已匹配的字符数与其部分匹配值之差。
 
-The partial match value of a string is the maximum length of a string (different from the string itself) which is both its prefix and its suffix. For example, the partial match value of "ABCABC" is 3 because "ABC" is both its prefix and its suffix. And the partial match table of a string is a table of the partial match value of all the prefixes of the string. In the following example, <data value="v{w}"></data> means the model string and <data value="v{v}"></data> is the partial match value. 
+一个字符串的部分匹配值为其相等真前缀与真后缀的最大长度。举个例子 `"ABCABC"` 的部分匹配值为3，因为 `"ABC"` 既是其前缀又是其后缀。一个字符串的部分匹配值表为其所有前缀的部分匹配值组成的的表。在下面的样例中，$w$ 为模式串，$v$ 为其部分匹配值。
 
-By the way, this problem is as same as <a href="/codes/?oj=POJ&pid=3461">POJ 3461</a>. I wrote this problem's solution just because POJ was broken and I have to hand the code to HDU last night. 
-
-P. S. It is very odd that Pascal passed POJ 3461 but not this problem! 
+|  $w$  |   A   |   A   |   B   |   D   |   A   |   A   |   B   |   C   |   A   |   A   |   A   |   B   |   D   |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+|  $v$  |   0   |   1   |   0   |   0   |   1   |   2   |   3   |   0   |   1   |   2   |   2   |   3   |   4   |
 
 ## 代码
 

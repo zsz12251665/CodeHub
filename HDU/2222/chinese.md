@@ -7,11 +7,9 @@
 
 ## 解法
 
-This is a practice of <abbr title="Aho-Corasick Automaton algorithm">ACAM</abbr>, a string searching algorithm which is able to search multi model strings at the same time with the help of a trie. It uses the same way as <abbr title="Knuth-Morris-Pratt string searching algorithm">KMP</abbr> does. 
+这是一道 <abbr title="Aho-Corasick 自动机算法">AC 自动机</abbr> 的练习题。AC 自动机是一个能利用字典树同时检索多个模式串的字符串搜索算法。它和 <abbr title="Knuth-Morris-Pratt 算法">KMP</abbr> 有着相同的原理。
 
-As the first step, we put all the model strings in a trie so that we can jump to the specific character according to the character we scan. Just like I mentioned, ACAM runs as same as KMP. The next step is to calculate which character I should jump to when I find a character unmatched. So without any differences, but we use the model strings trie to replace the single model string so that it will looks like an edge. Let's call it the fail edge. At the same time, you should set up a last array to mark the last model string on the fail route (the route which jump according to the fail edge to the root) so that you can find the model string quickly. Then we scan the question string and move the pointer on the trie according to the character we read, when we reach to a point, we search the model strings according to the last array. That's how ACAM works. 
-
-P. S. Okay! I admit that I'm preparing for my last <abbr title="Guangdong Olympiad in Informatics">GDOI</abbr>. But I do hope I can complete understand these algorithms. In my opinion, ACAM is much easier than KMP! 
+第一步，我们把所有的模式串放到一个字典树里，以便根据扫描到的字符在模式串上切换。正如我刚提到的，AC 自动机和 KMP 工作原理相同。下一步是计算当发现不匹配字符时，应当向哪个位置跳转。和 KMP 没啥区别，只是用模式串字典树取代了单个模式串，这让其看起来就像一条边。我们称之为失配边。同时，还要设立一个前导数组用来标记失配路径（沿着失配边返回根节点的路径）上最后一个模式串，以便于快速找到模式串。之后我们扫描匹配串，在字典树上根据匹配串的字符移动指针。到达一个点后，根据前导数组来搜索已匹配的模式串。这就是 AC 自动机的工作原理。
 
 ## 代码
 

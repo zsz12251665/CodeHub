@@ -7,7 +7,7 @@
 
 ## 解法
 
-This problem is just a mathematical problem. The speed how fast the two armies get close is <data value="o{(}v{u}o{+}v{v}o{)}"></data>, the sum of their speeds. Then the time they meet will be <data value="f{v{l}l{}v{u}o{+}v{v}}"></data>. The reporter is always running, so the time he runs is also <data value="f{v{l}l{}v{u}o{+}v{v}}"></data>. And the distance he runs will equal the speed multiply the time that is <data value="f{v{w}o{}v{l}l{}v{u}o{+}v{v}}"></data>. So when you read a group of <data value="o{(}v{u}o{,}v{v}o{,}v{w}o{,}v{l}o{)}"></data>, just output <data value="f{v{w}o{}v{l}l{}v{u}o{+}v{v}}"></data>. 
+这题是一道数学题。两军相互靠近的速度为 $u+v$，即二者速度之和。他们相遇所需的时间为 $l\over u+v$。记者总在移动，因此他运动的时间也是 $l\over u+v$。他跑动的距离等于速度乘时间，即 $w l\over u+v$。因此对于每一组 $(u,v,w,l)$，输出 $w l\over u+v$ 即可。
 
 ## 代码
 
