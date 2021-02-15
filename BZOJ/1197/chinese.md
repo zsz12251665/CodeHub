@@ -1,6 +1,6 @@
 # BZOJ 1197
 
- ## 描述
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/HYSBZ-1197)
 - [黑暗爆炸OJ](https://darkbzoj.tk/problem/1197)
