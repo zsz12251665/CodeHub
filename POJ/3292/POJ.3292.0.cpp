@@ -1,38 +1,31 @@
-#include<cstdio>
+#include <cstdio>
+#include <cstring>
 using namespace std;
-int isprime[1000002];// We Mark H-primes with 1, H-semi-primes with 2 and the others with 0
-long prime[1000002],queue[1000002],primesize=0;
+const int SIZE = 25e4; // An H-number 4n+1 <= 1e6 so that n < 25e4
+int ans[SIZE];
+int h_type[SIZE]; // We mark H-primes with 0, H-semi-primes with 1 and the others with -1
 int main()
 {
-	for(long i=5;i<1000002;i+=4)// Initialize the isprime array
-		isprime[i]=1;
-	for(long i=5;i<1000002;i+=4)// The Sieve of Euler
-	{
-		if(isprime[i]==1)
-			prime[primesize++]=i;
-		for(long j=0;j<primesize && i*prime[j]<1000002;++j)
+	memset(h_type, 0, sizeof h_type); // Initialize the h_type array
+	for (int i = 1; i < SIZE; ++i) // Enumerate every pair of H-numbers
+		for (int j = 1; j < SIZE; ++j)
 		{
-			isprime[i*prime[j]]=0;
-			if(i%prime[j]==0)
+			int k = 4 * i * j + i + j; // (4 * i + 1) * (4 * j + 1) == 4 * (4 * i * j + i + j) + 1
+			if (k > SIZE) // To avoid overlimit
 				break;
+			if (h_type[i] == 0 && h_type[j] == 0) // Check if it is a H-semi-prime
+				h_type[k] = 1;
+			else
+				h_type[k] = -1;
 		}
-	}
-	long n;// Read n and find the H-semi-primes below n
-	scanf("%ld",&n);
-	while(n!=0)
-	{
-		long ans=0;
-		for(long i=0;prime[i]<=n/5 && i<primesize;++i)// Enumerate every pair of H-primes
-			for(long j=0;prime[i]*prime[j]<=n && j<primesize;++j)
-				if(isprime[prime[i]*prime[j]]!=2)
-				{
-					isprime[prime[i]*prime[j]]=2;
-					queue[ans++]=prime[i]*prime[j];
-				}
-		printf("%ld %ld\n",n,ans);
-		for(long i=0;i<ans;++i)// The mark of H-semi-primes in the queue needs to be removed to avoid being not counted
-			isprime[queue[i]]=0;
-		scanf("%ld",&n);
-	}
+	ans[0] = 0; // Count the number of H-semi-primes from 1 to 4n+1
+	for (int i = 1; i < SIZE; ++i)
+		if (h_type[i] == 1)
+			ans[i] = ans[i - 1] + 1;
+		else
+			ans[i] = ans[i - 1];
+	int n;
+	for (scanf("%d", &n); n != 0; scanf("%d", &n))
+		printf("%d %d\n", n, ans[(n - 1) / 4]);
 	return 0;
 }

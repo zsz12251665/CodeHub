@@ -1,26 +1,27 @@
-#include<cstdio>
+#include <cstdio>
 using namespace std;
-int counter[1000001];
+const int SIZE = 1e6 + 1;
+int c[SIZE];
 int main()
 {
-	for(long milk=1;milk<1000001;++milk)
-		counter[milk]=0;
+	for (int milk = 1; milk < SIZE; ++milk)
+		c[milk] = 0;
 	int n;
-	scanf("%d",&n);
-	for(int i=0;i<n;++i)
+	scanf("%d", &n);
+	for (int i = 0; i < n; ++i)
 	{
-		long milk;
-		scanf("%ld",&milk);
-		counter[milk]++;
+		int milk;
+		scanf("%d", &milk);
+		c[milk]++;
 	}
-	int tmp=0;
-	for(long milk=1;milk<1000001;++milk)// Replace this line with "for(long milk=1000000;milk>0;--milk)" to sort in decrease order
-		if(tmp+counter[milk]>n/2)
+	int tmp = 0;
+	for (int milk = 1; milk < SIZE; ++milk) // Replace this line with "for (int milk = SIZE - 1; milk > 0; --milk)" to sort in decrease order
+		if (tmp + c[milk] > n / 2)
 		{
-			printf("%ld",milk);
+			printf("%d", milk);
 			return 0;
 		}
 		else
-			tmp+=counter[milk];
+			tmp += c[milk];
 	return 0;
 }
