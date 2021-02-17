@@ -1,11 +1,11 @@
 # POJ 1006
 
-## Description
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/POJ-1006)
 - [POJ](http://poj.org/problem?id=1006)
 
-## Solution
+## 解法
 
 To solve this problem, you need to know a little about the Chinese remainder theorem. It explains how to solve congruent equations. 
 
@@ -13,7 +13,6 @@ First of all, we need to find out the number-theoretic reciprocal of <data value
 
 If you have problem with some the number-theoretic reciprocal, here may give you some reference: To a pair of <data value="o{(}v{a}o{,}v{n}o{)}o{(}v{a}o{,}v{m}o{&isin;}c{&#8469;}b{o{+}}o{)}"></data>, if there is an integer <data value="v{n}"></data> which satisfies <data value="v{a}o{}v{n}o{&equiv;}c{1}o{(}o{mod}v{m}o{)}"></data>, we call <data value="v{n}"></data> the number-theoretic reciprocal of <data value="o{(}v{a}o{,}v{m}o{)}"></data>. For example, because <data value="c{6}o{&times;}c{28}o{&times;}c{33}o{&equiv;}c{1}o{(}o{mod}c{23}o{)}"></data>, so <data value="c{6}"></data> is the number-theoretic reciprocal of <data value="o{(}c{28}o{&times;}c{33}o{,}c{23}o{)}"></data>. 
 
+## 代码
 
-## Code
-
-- [Solution](POJ.1006.0.cpp)
+- [正解](POJ.1006.0.cpp)

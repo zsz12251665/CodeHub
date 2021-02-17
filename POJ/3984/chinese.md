@@ -1,11 +1,11 @@
 # POJ 3984
 
-## Description
+## 描述
 
 - [Virtual Judge](https://vjudge.net/problem/POJ-3984)
 - [POJ](http://poj.org/problem?id=3984)
 
-## Solution
+## 解法
 
 This Problem is easy to solve because of the <data value="c{5}o{&times;}c{5}"></data> matrix. Here is a way using <abbr title="Breadth-First Search">BFS</abbr>. 
 
@@ -15,7 +15,6 @@ P. S. It seems that the <abbr title="Free Pascal Compiler">FPC</abbr> of POJ has
 
 P. P. S. On 15:22, 10 November, 2017, the Pascal Code was submitted again and now it is proofed that the code is correct. 
 
+## 代码
 
-## Code
-
-- [Solution](POJ.3984.0.cpp)
+- [正解](POJ.3984.0.cpp)
