@@ -7,10 +7,9 @@
 
 ## Solution
 
-This problem is a good practice of using case sentences. It was shown in the codes below. 
+This problem is a good practice of using case sentences. It was shown in the codes below.
 
-By the way, the problem can also be solved with a sort function. But I was too lazy to do that so I used a counter instead. 
-
+By the way, the problem can also be solved with a sort function. But I was too lazy to do that so I used a counter instead.
 
 ## Code
 
