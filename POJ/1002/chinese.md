@@ -7,9 +7,9 @@
 
 ## 解法
 
-This problem is a good practice of using case sentences. It was shown in the codes below. 
+本题是一道很好的 `switch-case` 语句练习题。
 
-By the way, the problem can also be solved with a sort function. But I was too lazy to do that so I used a counter instead. 
+另：本题用排序算法也可做，但是我懒得用了，所以用了个计数器代替。
 
 ## 代码
 

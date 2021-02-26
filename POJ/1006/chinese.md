@@ -7,11 +7,11 @@
 
 ## 解法
 
-To solve this problem, you need to know a little about the Chinese remainder theorem. It explains how to solve congruent equations. 
+要解决这道题，你需要对中国剩余定理有一点了解。它解释了如何解同余方程组。
 
-First of all, we need to find out the number-theoretic reciprocal of <data value="c{23}"></data>, <data value="c{28}"></data> and <data value="c{33}"></data> at first. They are <data value="c{6}"></data>, <data value="c{19}"></data> and <data value="c{2}"></data>. And then according to the Chinese remainder theorem, the day which is <data value="o{(}o{(}c{6}o{&times;}c{28}o{&times;}c{33}o{)}o{}v{p}o{+}o{(}c{23}o{&times;}c{19}o{&times;}c{33}o{)}o{}v{e}o{+}o{(}c{23}o{&times;}c{28}o{&times;}c{2}o{)}o{}v{i}o{)}"></data> days from the first day of the year must be a triple peak occurred day. And then we deduct the days that had passed, and take the remainder which is divided with <data value="c{23}o{&times;}c{28}o{&times;}c{33}"></data>, we'll get the next triple peak occurred day. So keep it in one, the answer is <data value="o{(}c{5544}o{}v{p}o{+}c{14421}o{}v{e}o{+}c{1288}o{}v{i}o{-}v{d}o{+}c{21252}o{-}c{1}o{)}o{mod}c{21252}o{+}c{1}"></data> (to add a <data value="c{21252}"></data> is to keep the answer greater than 0, to minus 1 and then plus 1 is to keep the answer in <data value="o{[}c{1}o{,}c{21252}o{]}"></data>). 
+首先，我们分别找出 $23$、$28$ 和 $33$ 关于另外两数乘积的逆元 $6$、$19$ 和 $2$。然后，根据中国剩余定理，第一天后的 $(6\times28\times33)p+(23\times19\times33)e+(23\times28\times2)i$ 天会是三个人碰面的日子。然后减去已经过了的天数，取 $23\times28\times33$ 的余数，我们就可以知道下次三人碰面的日期了。一言以蔽之，答案就是 $(5544p+14421e+1299i-d+21252-1)\mod21252+1$（加一个 $21252$ 是为了保证答案大于零，减一再加一是为了保证答案落在 $[1,21252]$ 内）。
 
-If you have problem with some the number-theoretic reciprocal, here may give you some reference: To a pair of <data value="o{(}v{a}o{,}v{n}o{)}o{(}v{a}o{,}v{m}o{&isin;}c{&#8469;}b{o{+}}o{)}"></data>, if there is an integer <data value="v{n}"></data> which satisfies <data value="v{a}o{}v{n}o{&equiv;}c{1}o{(}o{mod}v{m}o{)}"></data>, we call <data value="v{n}"></data> the number-theoretic reciprocal of <data value="o{(}v{a}o{,}v{m}o{)}"></data>. For example, because <data value="c{6}o{&times;}c{28}o{&times;}c{33}o{&equiv;}c{1}o{(}o{mod}c{23}o{)}"></data>, so <data value="c{6}"></data> is the number-theoretic reciprocal of <data value="o{(}c{28}o{&times;}c{33}o{,}c{23}o{)}"></data>. 
+如果你对逆元不了解的话，以下可供参考：对于一个数对 $(a,m)$（$a,m\isin\mathbb{N}_+$），如果存在一个整数 $n$ 满足 $a n\equiv1\pmod{m}$，我们称 $n$ 是 of $(a,m)$ 的逆元。比如说 $6\times28\times33\equiv1\pmod{23}$，因此 $6$ 是 $(28\times33,23)$ 的逆元。
 
 ## 代码
 

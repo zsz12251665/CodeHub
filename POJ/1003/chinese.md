@@ -7,7 +7,7 @@
 
 ## 解法
 
-The description of the problem is too simple. I even don't know the data range. So at the beginning, I just followed the problem and simulate it. I was worried about the accuracy so I tried to use integers to keep the number. But soon I found it impossible because the <data value="v{i}o{!}"></data> is so big. So I use double instead. To my surprise, It is accepted. 
+这个题面简单到我连数据范围都找不到了。因此我尝试直接按照题目模拟。但出乎我意料的是，它过了……
 
 ## 代码
 
