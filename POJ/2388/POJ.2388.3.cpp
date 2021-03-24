@@ -1,32 +1,28 @@
 #include <cstdio>
-#include <cstring>
+#include <utility>
 using namespace std;
 const int SIZE = 1e4;
-int milk[SIZE], copy[SIZE];
-void msort(int l, int r)
+int milk[SIZE];
+void quickSort(int a[], int l, int r)
 {
-	if (l >= r)
-		return;
-	msort(l, (l + r) / 2);
-	msort((l + r) / 2 + 1, r);
-	memcpy(copy, milk, sizeof milk);
-	for (int i = l, x = l, y = (l + r) / 2 + 1; i <= r; ++i)
+	int x = l, y = r, std = a[(l + r) / 2];
+	while (x < y)
 	{
-		if (x > (l + r) / 2)
+		while (a[x] < std) // Replace this line with "while (a[x] > std)" to sort in decrease order
+			++x;
+		while (a[y] > std) // Replace this line with "while (a[y] < std)" to sort in decrease order
+			--y;
+		if (x <= y)
 		{
-			milk[i] = copy[y++];
-			continue;
+			swap(a[x], a[y]);
+			++x;
+			--y;
 		}
-		if (y > r)
-		{
-			milk[i] = copy[x++];
-			continue;
-		}
-		if (copy[x] > copy[y]) // Replace this line with "if (copy[x] < copy[y])" to sort in decrease order
-			milk[i] = copy[y++];
-		else
-			milk[i] = copy[x++];
 	}
+	if (l < y)
+		quickSort(a, l, y);
+	if (x < r)
+		quickSort(a, x, r);
 }
 int main()
 {
@@ -34,7 +30,7 @@ int main()
 	scanf("%d", &n);
 	for (int i = 0; i < n; ++i)
 		scanf("%d", &milk[i]);
-	msort(0, n - 1);
+	quickSort(milk, 0, n - 1);
 	printf("%d", milk[n / 2]);
 	return 0;
 }

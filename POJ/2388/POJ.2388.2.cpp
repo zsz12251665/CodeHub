@@ -1,27 +1,16 @@
 #include <cstdio>
+#include <utility>
 using namespace std;
 const int SIZE = 1e4;
 int milk[SIZE];
-void qsort(int l, int r)
+void insertionSort(int a[], int n)
 {
-	int x = l, y = r, std = milk[(l + r) / 2];
-	while (x < y)
-	{
-		while (milk[x] < std) // Replace this line with "while (milk[x] > std)" to sort in decrease order
-			++x;
-		while (milk[y] > std) // Replace this line with "while (milk[y] < std)" to sort in decrease order
-			--y;
-		if (x <= y)
-		{
-			int tmp = milk[x];
-			milk[x++] = milk[y];
-			milk[y--] = tmp;
-		}
-	}
-	if (l < y)
-		qsort(l, y);
-	if (x < r)
-		qsort(x, r);
+	for (int i = 1; i < n; ++i)
+		for (int j = i; j > 0; --j)
+			if (a[j - 1] > a[j]) // Replace this line with "if (a[j - 1] < a[j])" to sort in decrease order
+				swap(a[j - 1], a[j]);
+			else
+				break;
 }
 int main()
 {
@@ -29,7 +18,7 @@ int main()
 	scanf("%d", &n);
 	for (int i = 0; i < n; ++i)
 		scanf("%d", &milk[i]);
-	qsort(0, n - 1);
+	insertionSort(milk, n);
 	printf("%d", milk[n / 2]);
 	return 0;
 }
