@@ -1,47 +1,48 @@
-#include<cstdio>
+#include <cstdio>
 using namespace std;
-int p[50][50];
+const int SIZE = 50;
+int p[SIZE][SIZE];
 int main()
 {
 	int t;
-	for(scanf("%d",&t);t>0;--t)
+	for (scanf("%d", &t); t > 0; --t)
 	{
-		int n,m,k,maxi=0,maxj=0;// The coordinate of the tree with most peanuts
-		scanf("%d%d%d",&n,&m,&k);
-		for(int i=0;i<n;++i)
-			for(int j=0;j<m;++j)
+		int n, m, k, max_i = 0, max_j = 0; // The coordinate of the tree with most peanuts
+		scanf("%d%d%d", &n, &m, &k);
+		for (int i = 0; i < n; ++i)
+			for (int j = 0; j < m; ++j)
 			{
-				scanf("%d",&p[i][j]);
-				if(p[i][j]>p[maxi][maxj])// Find the tree with most peanuts
+				scanf("%d", &p[i][j]);
+				if (p[i][j] > p[max_i][max_j]) // Find the tree with most peanuts
 				{
-					maxi=i;
-					maxj=j;
+					max_i = i;
+					max_j = j;
 				}
 			}
-		int lasti=-1,lastj=maxj;// Decide the start point, it is the coordinate of the last visited tree
-		long sum=0;
-		k-=((maxj>lastj)?(maxj-lastj):(lastj-maxj))+1;// Calculate the extra time
-		if(maxi>lasti)// If max point isn't on the way back
-			k-=(maxi-lasti)*2;
-		while(k>=0)
+		int last_i = -1, last_j = max_j; // Decide the start point, it is the coordinate of the last visited tree
+		int sum = 0;
+		k -= (max_j > last_j ? max_j - last_j : last_j - max_j) + 1; // Calculate the extra time
+		if (max_i > last_i) // If max point isn't on the way back
+			k -= (max_i - last_i) * 2;
+		while (k >= 0)
 		{
-			sum+=p[maxi][maxj];
-			p[maxi][maxj]=0;
-			lasti=maxi;
-			lastj=maxj;
-			maxi=maxj=0;
-			for(int i=0;i<n;++i)
-				for(int j=0;j<m;++j)
-					if(p[i][j]>p[maxi][maxj])// Find the tree with most peanuts
+			sum += p[max_i][max_j];
+			p[max_i][max_j] = 0;
+			last_i = max_i;
+			last_j = max_j;
+			max_i = max_j = 0;
+			for (int i = 0; i < n; ++i)
+				for (int j = 0; j < m; ++j)
+					if (p[i][j] > p[max_i][max_j]) // Find the tree with most peanuts
 					{
-						maxi=i;
-						maxj=j;
+						max_i = i;
+						max_j = j;
 					}
-			k-=((maxj>lastj)?(maxj-lastj):(lastj-maxj))+1;// Calculate the extra time
-			if(maxi>lasti)// If max point isn't on the way back
-				k-=(maxi-lasti)*2;
+			k -= ((max_j > last_j) ? (max_j - last_j) : (last_j - max_j)) + 1; // Calculate the extra time
+			if (max_i > last_i) // If max point isn't on the way back
+				k -= (max_i - last_i) * 2;
 		}
-		printf("%ld\n",sum);
+		printf("%d\n", sum);
 	}
 	return 0;
 }

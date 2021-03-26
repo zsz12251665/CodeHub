@@ -7,7 +7,7 @@
 
 ## 解法
 
-Since there are many different groups of <data value="o{(}v{p}o{,}v{q}o{,}v{r}o{,}v{s}o{,}v{t}o{)}"></data>. We need to enumerate them one by one. Luckily, all of them are <data value="c{0}"></data> or <data value="c{1}"></data>, so there are just 32 groups. I got confused on how to know the expression. Later, I found that it is a prefix expression. So I can scan it from end to start and solve it like the suffix expression. You'll need a stack to keep the number you've get. When you get a number, put it into the stack. When you get an operator, push the top numbers, and put the answer into the stack. In this way, the last number left in the stack would be the answer of the whole expression. 
+由于有很多组不同的 $(p,q,r,s,t)$，我们需要逐个枚举。幸运的是，它们非 $0$ 即 $1$，因此总共只有32组。关于表达式，这是一个前缀表达式。我们可以从后往前扫以像处理后缀表达式一样处理它。你需要一个栈来存放所获得的数。当你获得一个数时，将其压入栈中。当你获得一个操作符时，将需要的数弹出来并将答案压入栈中。这样一来，最后栈中剩下的那个数即为整个表达式的结果。
 
 ## 代码
 

@@ -7,13 +7,9 @@
 
 ## 解法
 
-This Problem is easy to solve because of the <data value="c{5}o{&times;}c{5}"></data> matrix. Here is a way using <abbr title="Breadth-First Search">BFS</abbr>. 
+鉴于这是个 $5\times5$ 的矩阵，这个问题很容易。以下是一个基于 <abbr title="广度优先搜索">BFS</abbr> 的做法。
 
-We can make a parent array of every point who records its parent on the BFS tree from <data value="o{(}c{0}o{,}c{0}o{)}"></data>. Then we can easily find the path from <data value="o{(}c{4}o{,}c{4}o{)}"></data> to <data value="o{(}c{0}o{,}c{0}o{)}"></data> with the tree, just asking his ancestors. 
-
-P. S. It seems that the <abbr title="Free Pascal Compiler">FPC</abbr> of POJ has broken since last month because all attempts after August 26, 2017 got the result <abbr title="Compile Error">CE</abbr> on Virtual Judge. I'm sorry that the Pascal code could not be verified right now, just like <a href="/codes/?oj=POJ&pid=1007">POJ 1007</a> and <a href="/codes/?oj=POJ&pid=3292">POJ 3292</a>. 
-
-P. P. S. On 15:22, 10 November, 2017, the Pascal Code was submitted again and now it is proofed that the code is correct. 
+我们可以设一个数组记录每一个点在从 $(4,4)$ 出发的 BFS 树上的父节点。然后我们就可以借助这棵树简单地找到 $(0,0)$ 到 $(4,4)$ 的路径——直接找祖先即可。
 
 ## 代码
 

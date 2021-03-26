@@ -7,7 +7,7 @@
 
 ## Solution
 
-This problem is similar to <a href="/codes/?oj=NOIP&pid=2015J1">NOIP 2015J1</a>. So the simulating is the solution which is in the same way.
+This problem is similar to [NOIP 2015J1](/NOIP/2015J1/english.md). In the same way, simulation is the solution.
 
 ## Code
 

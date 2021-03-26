@@ -7,9 +7,9 @@
 
 ## 解法
 
-First of all, I thought it can be solved by a <abbr title="Breadth-First Search">BFS</abbr> from the lowest point. And I got a <abbr title="Wrong Answer">WA</abbr>. However, I didn't realize my mistake until someone told me a possible situation like <data value="m{c{8}l{}c{4}}o{&nbsp;}m{c{9}l{}c{5}}o{&nbsp;}m{c{1}l{}c{6}}o{&nbsp;}m{c{8}l{}c{7}}o{&nbsp;}m{c{8}l{}c{8}}"></data>. 
+一开始，我觉得这个题用 <abbr title="广度优先搜索">BFS</abbr> 从最低点搜到最高点就能过，然后就遇到了一个类似 $\begin{matrix}8&9&1&8&8\\4&5&6&7&8\end{matrix}$ 的情况 <abbr title="答案错误">WA</abbr> 了。
 
-Obviously, the longest length is 5. But it is not from the highest point or the lowest. I have to search every point to make sure the length I find is the longest. So I use a kind of memorable search to make the time shorter. So when I search a point, if it has been searched, the search function will return the answer immediately. Or it will search the four points beside it and return the longest length plus 1. That means <data value="v{length}b{v{x}o{,}v{y}}o{=}o{max}o{(}v{length}b{v{x}o{-}c{1}o{,}v{y}}o{,}v{length}b{v{x}o{,}v{y}o{-}c{1}}o{,}v{length}b{v{x}o{+}c{1}o{,}v{y}}o{,}v{length}b{v{x}o{,}v{y}o{+}c{1}}o{)}o{+}c{1}"></data>. 
+显然，最大长度为 5。但这并不是从最高点到最低点。因此我必须要搜到每一个点以保证我找到的长度最长。我用了一种记忆化搜索来减少搜索时间。当我搜到一个点时，如果它已经被搜到了，搜索函数就能立刻返回答案。否则它会取附近的四个点的最大值并加 1，即 $L_{x,y}=\max(L_{x-1,y},L_{x,y-1},L_{x+1,y},L_{x,y+1})+1$。
 
 ## 代码
 

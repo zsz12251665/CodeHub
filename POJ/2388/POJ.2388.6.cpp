@@ -2,7 +2,7 @@
 #include <cstring>
 using namespace std;
 const int SIZE = 1e4;
-const int RANGE = 1e6 + 10;
+const int RANGE = 1e6 + 1;
 int milk[SIZE], c[RANGE];
 void countingSort(int a[], int n)
 {

@@ -7,7 +7,7 @@
 
 ## Solution
 
-The problem was solved a year ago but I forgot to put it on the blog. This problem is similar to <a href="/codes/?oj=NOIP&pid=2004J2">NOIP 2004J2</a>. Just pay attention to the larger data range and the variable <data value="v{n}"></data> and <data value="v{m}"></data> have exchanged their places though it doesn't matter.
+This problem is similar to [NOIP 2004J2](/NOIP/2004J2/english.md). Just pay attention to the larger data range and the variable $n$ and $m$ have exchanged their places.
 
 ## Code
 

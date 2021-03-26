@@ -7,7 +7,7 @@
 
 ## 解法
 
-This problem is similar to <a href="/codes/?oj=POJ&pid=2777">POJ 2777</a>, which requires a segment tree to solve. So I changed the code and soon solved problem. By the way, you should pay attention to the data range and use the 64-bit integer to avoid array index being out of bounds. 
+本题与 [POJ 2777](/POJ/2777/english.md) 相似，都需要使用线段树解决。顺带一提，你需要注意数据范围，并使用64位整数以避免数组下标越界。
 
 ## 代码
 

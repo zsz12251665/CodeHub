@@ -7,7 +7,7 @@
 
 ## 解法
 
-The problem was solved a year ago but I forgot to put it on the blog. This problem is similar to <a href="/codes/?oj=NOIP&pid=2004J2">NOIP 2004J2</a>. Just pay attention to the larger data range and the variable <data value="v{n}"></data> and <data value="v{m}"></data> have exchanged their places though it doesn't matter. 
+本题与 [NOIP 2004J2](/NOIP/2004J2/chinese.md) 相似。注意数据范围变大且 $n$ 和 $m$ 互换位置即可。
 
 ## 代码
 

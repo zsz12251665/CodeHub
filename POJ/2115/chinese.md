@@ -7,13 +7,13 @@
 
 ## 解法
 
-Today is the Day 0 of <abbr title="Guangdong Olympiad in Informatics">GDOI</abbr> 2018. Here is a review of <abbr title="the extended Greatest Common Division algorithm">exGCD</abbr>. 
+本题是 <abbr title="拓展欧几里得算法">exGCD</abbr> 的一个回顾。
 
-As we've mentioned in <a href="/codes/?oj=NOIP&pid=2012S4">NOIP 2012S4</a>, exGCD is used to find a pair of <data value="o{(}v{x}o{,}v{y}o{)}"></data> which satisfies <data value="v{a}o{}v{x}o{+}v{b}o{}v{y}o{=}o{gcd}o{(}v{a}o{,}v{b}o{)}"></data>. It can be calculated with exGCD because <data value="v{a}o{}v{x}o{+}v{b}o{}v{y}o{=}v{b}o{}o{&lfloor;}f{v{a}l{}v{b}}o{&rfloor;}o{}v{x}o{+}o{(}v{a}o{mod}v{b}o{)}o{}v{x}o{+}v{b}o{}v{y}o{=}o{(}v{a}o{mod}v{b}o{)}o{}v{x}o{+}v{b}o{}o{(}o{&lfloor;}f{v{a}l{}v{b}}o{&rfloor;}o{}v{x}o{+}v{y}o{)}o{=}o{gcd}o{(}v{a}o{,}v{b}o{)}o{=}o{gcd}o{(}v{b}o{,}v{a}o{mod}v{b}o{)}"></data>. 
+正如我们在 [NOIP 2012S4](/NOIP/2012S4/english.md) 提到的，exGCD 是用来找一对 $(x,y)$ 以满足 $a x+b y=\gcd(a,b)$。它之所以可用 exGCD 来计算，是因为 $(a\bmod b)x+b\left(\left\lfloor a\over b\right\rfloor x+y\right)=b\left\lfloor a\over b\right\rfloor x+(a\bmod b)x+by=a x+b y=\gcd(a,b)=\gcd(a\bmod b,b)$。
 
-Now we focus on the problem. The problem is to calculate <data value="v{x}"></data> in formula <data value="v{a}o{+}v{c}o{}v{x}o{&equiv;}v{b}o{(}o{mod}c{2}p{v{k}}o{)}"></data>, which equals to <data value="v{c}o{}v{x}o{&equiv;}v{b}o{-}v{a}o{(}o{mod}c{2}p{v{k}}o{)}"></data> and <data value="v{c}o{}v{x}o{+}c{2}p{v{k}}o{}v{y}o{=}v{b}o{-}v{a}"></data>. So whether <data value="v{x}"></data> exists depends on if <data value="o{gcd}o{(}v{c}o{,}c{2}p{v{k}}o{)}o{|}o{(}v{b}o{-}v{a}o{)}"></data>. Then the next step is to calculate <data value="v{c}p{o{-}c{1}}o{(}o{mod}c{2}p{v{k}}o{)}"></data> and the problem is solved. 
+现在让我们专注于本题。题目要计算 $a+c x\equiv b\pmod{2^k}$ 中的 $x$。该方程等价于 $c x\equiv b-a\pmod{2^k}$ 和 $c x+2^ky=b-a$。因此 $x$ 是否存在依赖于是否有 $\gcd(c,2^k)|(b-a)$。下一步则是求 $c^{-1}\pmod{2^k}$，然后问题就解决了。
 
-By the way, you may probably notice that we need to module <data value="f{c{2}p{v{k}}l{}o{gcd}o{(}v{c}o{,}c{2}p{v{k}}o{)}}"></data> but not <data value="c{2}p{v{k}}"></data>. This is because we've divided <data value="o{gcd}o{(}v{c}o{,}c{2}p{v{k}}o{)}"></data> to make sure <data value="v{c}p{o{-}c{1}}o{(}o{mod}c{2}p{v{k}}o{)}"></data> exists. 
+顺便说一句，你可能注意到了我们要对 $2^k\over\gcd(c,2^k)$ 而不是 $2^k$ 取模。这是因为我们需要除以 $\gcd(c,2^k)$ 以保证 $c^{-1}\pmod{2^k}$ 存在。
 
 ## 代码
 

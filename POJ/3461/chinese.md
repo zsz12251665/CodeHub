@@ -7,7 +7,7 @@
 
 ## 解法
 
-This problem is completely as same as <a href="/codes/?oj=HDU&pid=1686">HDU 1686</a>. You can go there to find the solution. 
+本题和 [HDU 1686](/HDU/1686/chinese.md) 完全一样。请移步以查看解法。
 
 ## 代码
 

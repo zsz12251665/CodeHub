@@ -7,11 +7,7 @@
 
 ## 解法
 
-The problem is simple. Count the inversions as the problem tells you and then sort the strings and output them from the smallest inversion to the biggest one. By the way, you can combine the sort and output together by finding the smallest one without mark, marking it and then output it. 
-
-P. S. The <abbr title="Free Pascal Compiler">FPC</abbr> of POJ didn't work well when I tried to verify that the Pascal Code is able to solve the problem, so the Pascal Code remains unverified. 
-
-P. P. S. On 15:13, 10 November, 2017, the Pascal Code was submitted again and now it is proofed that the code is correct. 
+这道题很简单。统计题目中介绍的逆序对数量，然后将这些字符串排序并从逆序对最少的输出至逆序对最多的。另外，你可以将排序和输出“合并”在一起，每次找到未标记的最小值，打上标记并输出。
 
 ## 代码
 

@@ -7,7 +7,7 @@
 
 ## 解法
 
-This problem is similar to <a href="/codes/?oj=NOIP&pid=2015J1">NOIP 2015J1</a>. So the simulating is the solution which is in the same way. 
+本题和 [NOIP 2015J1](/NOIP/2015J1/chinese.md) 非常相似。做法是相同的——模拟。
 
 ## 代码
 
