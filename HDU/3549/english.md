@@ -11,7 +11,7 @@ As it describes, this problem is a template of the maximum flow in a network. Th
 
 ### Ford-Fulkerson
 
-The first one is the Ford-Fulkerson algorithm. Ford-Fulkerson is based on an idea that we can keep adding new flows until there is no flow available. The following code provided is using <abbr title="Depth-First Search">DFS</abbr> as the searching function. Sometimes the flow you find might be different from the maximum flow so we might need to revert some flows (or part of them). So we build inverse edges to revert the flow. Different from the normal edges, the capacity of the inverse edges is set to 0 by default. When you find a flow, subtract it from the capacity of the edges it passed and add it to the ones of their inverse edges in order to make sure the sum of their capacity is the same.
+The first one is the Ford-Fulkerson algorithm. Ford-Fulkerson is based on an idea that we can keep adding new flows until there is no flow available. The following code provided is using <abbr title="Depth-First Search">DFS</abbr> as the searching function. Sometimes the flow you find might be different from the maximum flow so we might need to revert some flows (or part of them). So we build inverse edges to revert the flow. Different from the normal edges, the capacity of the inverse edges is set to $0$ by default. When you find a flow, subtract it from the capacity of the edges it passed and add it to the ones of their inverse edges in order to make sure the sum of their capacity is the same.
 
 P. S. Using DFS directly is certainly not a good idea here. The DFS version of Ford-Fulkerson is the only one which failed to pass this problem. It got a <abbr title="Time Limit Exceeded">TLE</abbr>.
 

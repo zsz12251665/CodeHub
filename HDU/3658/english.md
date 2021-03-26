@@ -14,7 +14,7 @@ The dp array will be like $f_{i,j,c}$, which means the number of the words when 
 - $f_{i,j,0}=\sum_{k=j-31}^{k+31}f_{i-1,k,0}$
 - $f_{i,j,1}=f_{i-1,j\plusmn32,0}+\sum_{k=j-32}^{k+32}f_{i-1,k,1}$
 
-If we roll the dp array, change the difference of `'Z'` and `'a'` into 1 and then combine $j$ and $c$ as $52c+j$, we'll have these formulas:
+If we roll the dp array, assume `'Z'` and `'a'` adjacent and then combine $j$ and $c$ as $52c+j$, we'll have these formulas:
 
 - $f^*_j=\sum_{k=j-25}^{k+25}f_k$
 - $f^*_{j+52}=f_{j\plusmn26}+\sum_{k=j-26}^{k+26}f_{k+52}$
