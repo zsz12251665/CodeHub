@@ -1,56 +1,57 @@
-#include<cstdio>
-#include<cstring>// We need to use the memset function and the memcpy function in cstring
+#include <cstdio>
+#include <cstring>
 using namespace std;
-long long matrix[30][30],answer[30][30],multi[30][30],power[30][30],sum[30][30],temp[30][30];
+const int SIZE = 30;
+typedef long long Matrix[SIZE][SIZE];
+int n, k, m;
+Matrix A, S, P, T, M, tmp;
+void add(const Matrix &a, const Matrix &b, Matrix &res) // Matrix addition
+{
+	for (int i = 0; i < n; ++i)
+		for (int j = 0; j < n; ++j)
+			res[i][j] = (a[i][j] + b[i][j]) % m;
+}
+void multiply(const Matrix &a, const Matrix &b, Matrix &res) // Matrix multiplication
+{
+	memset(res, 0, sizeof res);
+	for (int i = 0; i < n; ++i)
+		for (int j = 0; j < n; ++j)
+			for (int c = 0; c < n; ++c)
+				res[i][j] = (a[i][c] * b[c][j] + res[i][j]) % m;
+}
 int main()
 {
-	int n,m;
-	long k;
-	scanf("%d%ld%d",&n,&k,&m);
-	for(int i=0;i<n;++i)// Read the matrix A
-		for(int j=0;j<n;++j)
+	scanf("%d%d%d", &n, &k, &m);
+	for (int i = 0; i < n; ++i) // Read the matrix A
+		for (int j = 0; j < n; ++j)
 		{
-			scanf("%lld",&matrix[i][j]);
-			matrix[i][j]=matrix[i][j]%m;
+			scanf("%lld", &A[i][j]);
+			A[i][j] %= m;
 		}
-	memcpy(power,matrix,sizeof power);// Initialize the 2^0 times of the matrix A, which is the matrix A
-	memcpy(sum,matrix,sizeof sum);// Initialize the sum of the first 2^0 times of the matrix A, which is the matrix A too
-	memset(answer,0,sizeof answer);// Initialize the answer matrix, which is the zero matrix
-	memset(multi,0,sizeof multi);// Initialize the multi matrix to the identity matrix
-	for(int i=0;i<n;++i)
-		multi[i][i]=1;
-	for(;k>0;k/=2)// Conver k into binary
+	memcpy(P, A, sizeof P); // P is initially A too
+	memcpy(T, A, sizeof T); // T is initally A
+	memset(S, 0, sizeof S); // S is initally 0
+	memset(M, 0, sizeof M); // M is initally I
+	for (int i = 0; i < n; ++i)
+		M[i][i] = 1;
+	for (; k > 0; k /= 2) // Convert k into binary
 	{
-		if(k%2==1)
+		if (k % 2 == 1)
 		{
-			for(int i=0;i<n;++i)// Add the product of the sum and the multiplier to the answer
-				for(int j=0;j<n;++j)
-					for(int c=0;c<n;++c)
-						answer[i][j]=(multi[i][c]*sum[c][j]+answer[i][j])%m;
-			memset(temp,0,sizeof temp);// Update the multiplier
-			for(int i=0;i<n;++i)
-				for(int j=0;j<n;++j)
-					for(int c=0;c<n;++c)
-						temp[i][j]=(multi[i][c]*power[c][j]+temp[i][j])%m;
-			memcpy(multi,temp,sizeof multi);
+			multiply(M, T, tmp); // S = S + M * T
+			add(S, tmp, S);
+			multiply(M, P, tmp); // M = M * P
+			memcpy(M, tmp, sizeof tmp);
 		}
-		memcpy(temp,sum,sizeof temp);// Update the sum
-		for(int i=0;i<n;++i)
-			for(int j=0;j<n;++j)
-				for(int c=0;c<n;++c)
-					temp[i][j]=(sum[i][c]*power[c][j]+temp[i][j])%m;
-		memcpy(sum,temp,sizeof sum);
-		memset(temp,0,sizeof temp);// Update the power
-		for(int i=0;i<n;++i)
-			for(int j=0;j<n;++j)
-				for(int c=0;c<n;++c)
-					temp[i][j]=(power[i][c]*power[c][j]+temp[i][j])%m;
-		memcpy(power,temp,sizeof power);
+		multiply(P, T, tmp); // T = T + P * T
+		add(T, tmp, T);
+		multiply(P, P, tmp); // P = P * P
+		memcpy(P, tmp, sizeof tmp);
 	}
-	for(int i=0;i<n;++i)
+	for (int i = 0; i < n; ++i)
 	{
-		for(int j=0;j<n;++j)
-			printf("%lld ",answer[i][j]);
+		for (int j = 0; j < n; ++j)
+			printf("%lld ", S[i][j]);
 		putchar('\n');
 	}
 	return 0;

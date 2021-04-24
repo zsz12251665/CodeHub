@@ -7,7 +7,7 @@
 
 ## 解法
 
-The problem needs a <abbr title="Breadth-First Search">BFS</abbr>. A queue can solve the problem. But you'd better to add mark to the points you've visited, or you may get a <abbr title="Time Limit Exceed">TLE</abbr>. 
+本题仅需一个简单的 <abbr title="广度优先搜索">BFS</abbr> 即可解决。可以证明 FJ 不会去到比 $4k\over3$ 更远的位置，否则这条路径不可能是最优的。
 
 ## 代码
 

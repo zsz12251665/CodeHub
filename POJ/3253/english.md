@@ -7,9 +7,9 @@
 
 ## Solution
 
-The problem equals to <a href="/codes/?oj=NOIP&pid=2004S2">NOIP 2004J2</a> in form. The idea and the algorithm are the same. The only difference is the data range, which you might need 64-bit integer in this problem.
+The problem equals to [NOIP 2004S2](/NOIP/2004S2/english.md) in form. The idea and the algorithm are the same. The only difference is the data range, which you might need 64-bit integers in this problem.
 
-P. S. The compiler of Pascal is still dead so the Pascal Code remains unverified.
+We are introducing `priority_queue` in this solution. It is an <abbr title="Standard Template Library">STL</abbr> container which functions very similar to the heap. But pay attention that it is the max heap by default. To switch it into a min heap, you need to replace `less` comparer with `greater` comparer in the declaration or manually override the `operator<` function of the element class.
 
 ## Code
 

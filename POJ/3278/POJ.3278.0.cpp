@@ -1,46 +1,41 @@
-#include<cstdio>
+#include <cstdio>
+#include <cstring>
 using namespace std;
-long time[100000],queue[100000],head=0,foot=1;// The time array is used to mark if it is visited and keep the time to reach
+const int SIZE = 1.4e5;
+int time[SIZE], queue[SIZE]; // The time array keeps the time to reach the point
 int main()
 {
-	for(long t=0;t<100000;++i)// Initialize the time array
-		time[t]=-1;
-	long n,k,t=0;
-	scanf("%d%d",&n,&k);
-	time[n]=0;
-	queue[head]=n;
-	long tmp=foot;// tmp is used to keep the end of the queue of this minute
-	while(true)
+	memset(time, -1, sizeof time); // Initialize the time array
+	int n, k;
+	scanf("%d%d", &n, &k);
+	time[n] = 0;
+	queue[0] = n;
+	int head = 0, foot = 1;
+	while (head != foot) // BFS part
 	{
-		++t;
-		while(head!=tmp)
+		int x = queue[head++];
+		head %= SIZE;
+		if (x == k)
+			break;
+		if (x < SIZE && time[x + 1] == -1) // x + 1
 		{
-			if(queue[head]==k)// If FJ has come to k, print the time and return
-			{
-				printf("%d",time[queue[head]]);
-				return 0;
-			}
-			if(queue[head]<100000 && time[queue[head]+1]==-1)
-			{
-				time[queue[head]+1]=t;
-				queue[foot]=queue[head]+1;
-				foot=(foot+1)%100000;// Don't forget to modulo 100000 to avoid getting over array limit
-			}
-			if(queue[head]>-1 && time[queue[head]-1]==-1)
-			{
-				time[queue[head]-1]=t;
-				queue[foot]=queue[head]-1;
-				foot=(foot+1)%100000;
-			}
-			if(queue[head]<50000 && time[queue[head]*2]==-1)
-			{
-				time[queue[head]*2]=t;
-				queue[foot]=queue[head]*2;
-				foot=(foot+1)%100000;
-			}
-			head=(head+1)%100000;
+			time[x + 1] = time[x] + 1;
+			queue[foot++] = x + 1;
+			foot %= SIZE;
 		}
-		tmp=foot;
+		if (x > 0 && time[x - 1] == -1) // x - 1
+		{
+			time[x - 1] = time[x] + 1;
+			queue[foot++] = x - 1;
+			foot %= SIZE;
+		}
+		if (2 * x < SIZE && time[2 * x] == -1) // 2 * x
+		{
+			time[2 * x] = time[x] + 1;
+			queue[foot++] = 2 * x;
+			foot %= SIZE;
+		}
 	}
+	printf("%d", time[k]);
 	return 0;
 }

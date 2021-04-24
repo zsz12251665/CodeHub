@@ -7,7 +7,7 @@
 
 ## Solution
 
-The problem needs a <abbr title="Breadth-First Search">BFS</abbr>. A queue can solve the problem. But you'd better to add mark to the points you've visited, or you may get a <abbr title="Time Limit Exceed">TLE</abbr>.
+The problem needs a simple <abbr title="Breadth-First Search">BFS</abbr> to solve the problem. It can be proved that FJ will not go further than $4k\over3$ otherwise the path must not be optimal.
 
 ## Code
 
