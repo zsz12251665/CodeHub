@@ -14,8 +14,8 @@
 	<ul>
 		<li>When <data value="v{x}o{=}c{1}"></data>, no spell can be applied. </li>
 		<li><data value="o{3}"></data> can only be turned into <data value="o{2}"></data>, and <data value="o{2}"></data> can only be turned into <data value="o{3}"></data> or <data value="o{1}"></data>. </li>
-		<li><data value="v{x}"></data> can be turned into any positive number which not greater than <data value="v{x}"></data>. </li>
-		<li>When <data value="v{x}o{&ge;}c{4}"></data>, <data value="v{x}"></data> can be turned into the positive number as large as you want by repeating these two steps: decreasing <data value="v{x}"></data> to the biggest even number which is not greater than <data value="v{x}"></data> and multiplying <data value="v{x}"></data> with <data value="f{o{3}l{}o{2}}"></data>. </li>
+		<li>$x$ can be turned into any positive number which not greater than $x$. </li>
+		<li>When <data value="v{x}o{&ge;}c{4}"></data>, $x$ can be turned into the positive number as large as you want by repeating these two steps: decreasing $x$ to the biggest even number which is not greater than $x$ and multiplying $x$ with <data value="f{o{3}l{}o{2}}"></data>. </li>
 	</ul>
 	<p>So we have the following situations, which is the solution we want: </p>
 	<ul>

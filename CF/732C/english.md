@@ -10,15 +10,15 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>Let's calculate how many meals Vasiliy might have for different time he arrived and left. The following sheets showed the result if he stayed <data value="v{n}"></data> (we treat arriving after supper the same situation as arriving before breakfast the next day). </p>
+	<p>Let's calculate how many meals Vasiliy might have for different time he arrived and left. The following sheets showed the result if he stayed $n$ (we treat arriving after supper the same situation as arriving before breakfast the next day). </p>
 	<table style="margin: auto; text-align: center;">
 		<thead>
 			<tr>
 				<th>Arrival time</th>
 				<th>Departure time</th>
-				<th><data value="v{b}"></data></th>
-				<th><data value="v{d}"></data></th>
-				<th><data value="v{s}"></data></th>
+				<th>$b$</th>
+				<th>$d$</th>
+				<th>$s$</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,15 +32,15 @@
 			<tr>
 				<td>Before breakfast</td>
 				<td>Before dinner</td>
-				<td><data value="v{n}"></data></td>
+				<td>$n$</td>
 				<td><data value="o{(}v{n}o{-}c{1}o{)}"></data></td>
 				<td><data value="o{(}v{n}o{-}c{1}o{)}"></data></td>
 			</tr>
 			<tr>
 				<td>Before breakfast</td>
 				<td>Before supper</td>
-				<td><data value="v{n}"></data></td>
-				<td><data value="v{n}"></data></td>
+				<td>$n$</td>
+				<td>$n$</td>
 				<td><data value="o{(}v{n}o{-}c{1}o{)}"></data></td>
 			</tr>
 			<tr>
@@ -61,7 +61,7 @@
 				<td>Before dinner</td>
 				<td>Before supper</td>
 				<td><data value="o{(}v{n}o{-}c{1}o{)}"></data></td>
-				<td><data value="v{n}"></data></td>
+				<td>$n$</td>
 				<td><data value="o{(}v{n}o{-}c{1}o{)}"></data></td>
 			</tr>
 			<tr>

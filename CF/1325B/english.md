@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>In my opinion, this problem is even easier than <a href="/codes/?oj=CF&pid=1325A">CF 1325A</a>. The answer is the number of different numbers in the array. This is because it was copied <data value="v{n}"></data> times so that you can choose one number in each copy. And the sequence should be strictly increasing so you cannot choose the number with the same value. </p>
+	<p>In my opinion, this problem is even easier than <a href="/codes/?oj=CF&pid=1325A">CF 1325A</a>. The answer is the number of different numbers in the array. This is because it was copied $n$ times so that you can choose one number in each copy. And the sequence should be strictly increasing so you cannot choose the number with the same value. </p>
 </section>
 <section>
 	<h2>Code</h2>

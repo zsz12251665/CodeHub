@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>This problem is a good practice of <abbr title="Shortest Path Faster Algorithm">SPFA</abbr>. To solve the problem, you can run SPFA twice to find the distance to <data value="v{s}"></data> and <data value="v{t}"></data> of each point. Then you can enumerate the point pairs and check whether you can add an edge here. But remember to skip or remove the edges which already exist. The total time complexity is <data value="o{O}o{(}v{n}p{2}o{)}"></data>. </p>
+	<p>This problem is a good practice of <abbr title="Shortest Path Faster Algorithm">SPFA</abbr>. To solve the problem, you can run SPFA twice to find the distance to $s$ and $t$ of each point. Then you can enumerate the point pairs and check whether you can add an edge here. But remember to skip or remove the edges which already exist. The total time complexity is <data value="o{O}o{(}v{n}p{2}o{)}"></data>. </p>
 </section>
 <section>
 	<h2>Code</h2>

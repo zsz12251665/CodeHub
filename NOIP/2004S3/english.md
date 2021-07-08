@@ -9,7 +9,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>First, to every <data value="v{i}"></data> in <data value="o{[}c{1}o{,}v{n}o{]}"></data>, we need to find the longest ascending subsequence from 1 to <data value="v{i}"></data> and the longest descending subsequence from <data value="v{i}"></data> to <data value="v{n}"></data>. Both of them must include <data value="v{i}"></data>. In this way, we can count the number of the students who get out when <data value="v{i}"></data> is the tallest student in the team. And then, we can search the <data value="o{[}c{1}o{,}v{n}o{]}"></data> to get the smallest answer. </p>
+	<p>First, to every $i$ in <data value="o{[}c{1}o{,}v{n}o{]}"></data>, we need to find the longest ascending subsequence from 1 to $i$ and the longest descending subsequence from $i$ to $n$. Both of them must include $i$. In this way, we can count the number of the students who get out when $i$ is the tallest student in the team. And then, we can search the <data value="o{[}c{1}o{,}v{n}o{]}"></data> to get the smallest answer. </p>
 </section>
 <section>
 	<h2>Code</h2>

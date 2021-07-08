@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>This problem required us to find out all the lakes, and according to the greedy algorithm, we will fill the smallest lakes with land until there are only <data value="v{k}"></data> of them left. But the problem is how to find out all the lakes. The answer is <abbr title="Depth-First Search">DFS</abbr>. What's more, you'll find the data range is just <data value="c{1}o{&le;}v{n}o{,}v{m}o{&le;}c{50}"></data> and <data value="c{0}o{&le;}v{k}o{&le;}c{50}"></data>. So what else do we need to worry about? The simulation is very enough. </p>
+	<p>This problem required us to find out all the lakes, and according to the greedy algorithm, we will fill the smallest lakes with land until there are only $k$ of them left. But the problem is how to find out all the lakes. The answer is <abbr title="Depth-First Search">DFS</abbr>. What's more, you'll find the data range is just <data value="c{1}o{&le;}v{n}o{,}v{m}o{&le;}c{50}"></data> and <data value="c{0}o{&le;}v{k}o{&le;}c{50}"></data>. So what else do we need to worry about? The simulation is very enough. </p>
 </section>
 <section>
 	<h2>Code</h2>

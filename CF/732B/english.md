@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>This problem can be solved by the greedy algorithm. For any consecutive two days (enumerating from first to last), if their sum is smaller than <data value="v{k}"></data>, add the second day to meet the requirement. </p>
+	<p>This problem can be solved by the greedy algorithm. For any consecutive two days (enumerating from first to last), if their sum is smaller than $k$, add the second day to meet the requirement. </p>
 </section>
 <section>
 	<h2>Code</h2>

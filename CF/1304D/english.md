@@ -11,7 +11,7 @@
 <section>
 	<h2>Solution</h2>
 	<p>Eh... My intuition told me that the shortest <abbr title="longest increasing subsequence">LIS</abbr> can be found on the lexicographically largest sequence and the longest one can be found on the lexicographically smallest sequence but I have no idea how to prove it. And it is correct (although neither my solution or the tutorial has the proof)! </p>
-	<p>The lexicographically largest sequence is a sequence from <data value="v{n}"></data> to <data value="c{1}"></data> but reverse the part which <data value="v{a}b{v{i}}o{&lt;}v{a}b{v{i}o{+}c{1}}"></data> consecutively and vice versa to the lexicographically smallest sequence. </p>
+	<p>The lexicographically largest sequence is a sequence from $n$ to <data value="c{1}"></data> but reverse the part which <data value="v{a}b{v{i}}o{&lt;}v{a}b{v{i}o{+}c{1}}"></data> consecutively and vice versa to the lexicographically smallest sequence. </p>
 </section>
 <section>
 	<h2>Code</h2>

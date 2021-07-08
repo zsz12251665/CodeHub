@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>This problem is simple. Only if <data value="v{x}"></data> is not greater than <data value="v{y}"></data> and <data value="o{(}v{x}o{-}v{y}o{)}"></data> is a multiple of <data value="o{(}v{a}o{+}v{b}o{)}"></data> can the two rabbits be at the same position at the same moment. </p>
+	<p>This problem is simple. Only if $x$ is not greater than $y$ and <data value="o{(}v{x}o{-}v{y}o{)}"></data> is a multiple of <data value="o{(}v{a}o{+}v{b}o{)}"></data> can the two rabbits be at the same position at the same moment. </p>
 </section>
 <section>
 	<h2>Code</h2>

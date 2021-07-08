@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>This problem is very simple. You enumerate all the power of <data value="v{k}"></data> to find the answer. But pay attention to avoid overlimit. </p>
+	<p>This problem is very simple. You enumerate all the power of $k$ to find the answer. But pay attention to avoid overlimit. </p>
 </section>
 <section>
 	<h2>Code</h2>

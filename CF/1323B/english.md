@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>The 0s divide the rectangles into several subrectangles only containing 1. So we should enumerate the height and width of the subrectangles of size <data value="v{k}"></data> and access the subrectangles created by consecutive 1s in <data value="v{a}"></data> and <data value="v{b}"></data> one by one and calculate the answer. </p>
+	<p>The 0s divide the rectangles into several subrectangles only containing 1. So we should enumerate the height and width of the subrectangles of size $k$ and access the subrectangles created by consecutive 1s in $a$ and $b$ one by one and calculate the answer. </p>
 </section>
 <section>
 	<h2>Code</h2>

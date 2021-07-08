@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>Suppose there are <data value="v{k}"></data> nuts in the chocolate, and between the <data value="v{i}"></data>-th nut and the <data value="o{(}v{i}o{+}c{1}o{)}"></data>-th nut there are <data value="v{b}b{v{i}}"></data> empty bars. Then the answer will be <data value="o{&Pi;}i{v{k}o{-}c{1}l{}v{i}o{=}c{1}}o{(}v{b}b{v{i}}o{+}c{1}o{)}"></data>. Attention that the empty bars before the first nut or behind the last nut should not be counted. And if there is no nut, the answer will be zero. </p>
+	<p>Suppose there are $k$ nuts in the chocolate, and between the $i$-th nut and the <data value="o{(}v{i}o{+}c{1}o{)}"></data>-th nut there are <data value="v{b}b{v{i}}"></data> empty bars. Then the answer will be <data value="o{&Pi;}i{v{k}o{-}c{1}l{}v{i}o{=}c{1}}o{(}v{b}b{v{i}}o{+}c{1}o{)}"></data>. Attention that the empty bars before the first nut or behind the last nut should not be counted. And if there is no nut, the answer will be zero. </p>
 </section>
 <section>
 	<h2>Code</h2>

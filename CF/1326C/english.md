@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>The maximum possible partition value is <data value="o{&sum;}i{v{n}l{}v{i}o{=}v{n}o{-}v{k}o{+}c{1}}v{i}"></data>. It can be found when each segment contains exactly one of the <data value="v{k}"></data> maximum numbers. Then the problem can be translated to the same as <a href="/codes/?oj=CF&pid=617B">CF 617B</a>, which calculate the number of ways to break the permutation. </p>
+	<p>The maximum possible partition value is <data value="o{&sum;}i{v{n}l{}v{i}o{=}v{n}o{-}v{k}o{+}c{1}}v{i}"></data>. It can be found when each segment contains exactly one of the $k$ maximum numbers. Then the problem can be translated to the same as <a href="/codes/?oj=CF&pid=617B">CF 617B</a>, which calculate the number of ways to break the permutation. </p>
 </section>
 <section>
 	<h2>Code</h2>

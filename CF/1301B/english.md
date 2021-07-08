@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>To minimize the maximum difference, we should find the maximum element and the minimum element next to the missing elements and set <data value="v{k}"></data> as the medium of them so that we can control their differences smaller than the half range of the elements between them. However, the maximum difference might be found between two fixed elements. So you should scan the whole sequence after replacing missing elements with <data value="v{k}"></data> to find the maximum difference as the answer. </p>
+	<p>To minimize the maximum difference, we should find the maximum element and the minimum element next to the missing elements and set $k$ as the medium of them so that we can control their differences smaller than the half range of the elements between them. However, the maximum difference might be found between two fixed elements. So you should scan the whole sequence after replacing missing elements with $k$ to find the maximum difference as the answer. </p>
 </section>
 <section>
 	<h2>Code</h2>

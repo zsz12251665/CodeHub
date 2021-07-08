@@ -10,7 +10,7 @@
 </section>
 <section>
 	<h2>Solution</h2>
-	<p>This problem is very interesting. We notice that <data value="v{m}"></data> is very small. So if there exist a pair of <data value="v{i}"></data> and <data value="v{j}"></data> that <data value="}v{a}b{v{i}}o{&equiv;}}v{a}b{v{j}}o{(}o{mod}v{m}o{)}o{&hArr;}o{|}v{a}b{v{i}}o{-}v{a}b{v{j}}o{|}o{&equiv;}c{0}o{(}o{mod}v{m}o{)}"></data>, then the answer will be zero too. So we can check whether all the numbers have different remainders. If not, the answer is zero. Otherwise, there are at most <data value="v{m}"></data> left. And we can use an <data value="o{O}o{(}v{m}p{c{2}}o{)}"></data> <abbr title="Brute Force">BF</abbr> to calculate the answer. </p>
+	<p>This problem is very interesting. We notice that $m$ is very small. So if there exist a pair of $i$ and $j$ that <data value="}v{a}b{v{i}}o{&equiv;}}v{a}b{v{j}}o{(}o{mod}v{m}o{)}o{&hArr;}o{|}v{a}b{v{i}}o{-}v{a}b{v{j}}o{|}o{&equiv;}c{0}o{(}o{mod}v{m}o{)}"></data>, then the answer will be zero too. So we can check whether all the numbers have different remainders. If not, the answer is zero. Otherwise, there are at most $m$ left. And we can use an <data value="o{O}o{(}v{m}p{c{2}}o{)}"></data> <abbr title="Brute Force">BF</abbr> to calculate the answer. </p>
 </section>
 <section>
 	<h2>Code</h2>
