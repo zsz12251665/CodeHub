@@ -7,9 +7,9 @@
 
 ## 解法
 
-The method of calculating the <data value="v{n}"></data>-th number of the Fibonacci integer sequence has been given in the description of the problem. It is the power of matrix. But since <data value="c{0}o{&le;}v{n}o{&le;}c{10}p{9}"></data>, we need a fast power of matrix, which is like the fast power of integer of which time complexity is <data value="o{O}o{(}o{lg}v{n}o{)}"></data>. 
+计算第 $n$ 个斐波那契数的方法题目描述中已经给出，一个是矩阵的幂。鉴于 $0\le n\le10^9$，我们需要使用与整数快速幂类似的矩阵快速幂将时间复杂度压缩到 $\operatorname{O}(\log n)$。
 
-For the beginners who don't know how the multiplication of matrix is calculated, here it is. For two matrices <data value="o{[}m{v{a}b{1}l{}v{a}b{3}}o{&nbsp;}m{v{a}b{2}l{}v{a}b{4}}o{]}"></data> and <data value="o{[}m{v{b}b{1}l{}v{b}b{3}}o{&nbsp;}m{v{b}b{2}l{}v{b}b{4}}o{]}"></data>, the product is <data value="o{[}m{v{a}b{1}o{}v{b}b{1}o{+}v{a}b{2}o{}v{b}b{3}l{}v{a}b{3}o{}v{b}b{1}o{+}v{a}b{4}o{}v{b}b{3}}o{&nbsp;}m{v{a}b{1}o{}v{b}b{2}o{+}v{a}b{2}o{}v{b}b{4}l{}v{a}b{3}o{}v{b}b{2}o{+}v{a}b{4}o{}v{b}b{4}}o{]}"></data>. Although it doesn't have the commutative property, the multiplication of matrix has the associative property, which means <data value="o{(}o{[}m{v{a}b{1}l{}v{a}b{3}}o{&nbsp;}m{v{a}b{2}l{}v{a}b{4}}o{]}o{[}m{v{b}b{1}l{}v{b}b{3}}o{&nbsp;}m{v{b}b{2}l{}v{b}b{4}}o{]}o{)}o{[}m{v{c}b{1}l{}v{c}b{3}}o{&nbsp;}m{v{c}b{2}l{}v{c}b{4}}o{]}o{=}o{[}m{v{a}b{1}l{}v{a}b{3}}o{&nbsp;}m{v{a}b{2}l{}v{a}b{4}}o{]}o{(}o{[}m{v{b}b{1}l{}v{b}b{3}}o{&nbsp;}m{v{b}b{2}l{}v{b}b{4}}o{]}o{[}m{v{c}b{1}l{}v{c}b{3}}o{&nbsp;}m{v{c}b{2}l{}v{c}b{4}}o{]}o{)}"></data>. So we can make the fast power of matrix as same as the fast power of integer which transforms the index into binary. 
+对于不知道如何计算矩阵的幂的新手，这里进行一些说明。对于两个矩阵 $\begin{bmatrix}a_1&a_2\\a_3&a_4\end{bmatrix}$ 和 $\begin{bmatrix}b_1&b_2\\b_3&b_4\end{bmatrix}$，它们的乘积是 $\begin{bmatrix}a_1b_1+a_2b_3&a_1b_2+a_2b_4\\a_3b_1+a_4b_3&a_3b_2+a_4b_4\end{bmatrix}$。尽管其不遵守交换律，但矩阵乘法有结合律，即 $\left(\begin{bmatrix}a_1&a_2\\a_3&a_4\end{bmatrix}\begin{bmatrix}b_1&b_2\\b_3&b_4\end{bmatrix}\right)\begin{bmatrix}c_1&c_2\\c_3&c_4\end{bmatrix}=\begin{bmatrix}a_1&a_2\\a_3&a_4\end{bmatrix}\left(\begin{bmatrix}b_1&b_2\\b_3&b_4\end{bmatrix}\begin{bmatrix}c_1&c_2\\c_3&c_4\end{bmatrix}\right)$。因此我们可以把指数转换成二进制，以与整数快速幂的相同方式进行矩阵快速幂。
 
 ## 代码
 

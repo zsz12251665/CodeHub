@@ -1,14 +1,16 @@
 #include <cstdio>
+#include <functional>
 #include <utility>
 using namespace std;
-const int SIZE = 3e4; // Might need to plus 1 when submitted in G++
+const int SIZE = 3e4 + 1;
 int a[SIZE], u[SIZE];
-template<bool (*cmp)(int, int)> // We are taking a function as a template parameter here
+template<class cmpClass> // We are taking a functional class as a template parameter here
 struct heap // The heap template
 {
 	int a[SIZE];
 	int size;
-	heap() : size(0) {}
+	cmpClass cmp;
+	heap() : size(0), cmp() {}
 	int top()
 	{
 		return a[0];
@@ -34,16 +36,8 @@ struct heap // The heap template
 		}
 	}
 };
-bool less(int a, int b) // The comparing function is with respect to the priority queue
-{
-	return a < b;
-}
-bool greater(int a, int b)
-{
-	return a > b;
-}
-heap<less> maxHeap;
-heap<greater> minHeap;
+heap<less<int> > maxHeap; // The comparing function is with respect to the priority queue
+heap<greater<int> > minHeap;
 int main()
 {
 	int m, n;

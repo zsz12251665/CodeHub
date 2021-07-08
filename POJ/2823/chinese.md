@@ -7,9 +7,7 @@
 
 ## 解法
 
-The problem requires a data structure called monotonous double-ended queue. The monotonous queue keeps the sequence of the maximum or minimum values of the array. That means they are not only monotonous in values, but also monotonous in indexes. When we move the window forward, we can pop the node on the head that has been got out of the range out, then pop out some nodes in the end to Pop out the nodes in the end to keep the queue monotonous and finally add the new node in. So the head node will be the maximum or the minimum value. 
-
-P. S. It is fantastic that the Pascal program can run faster then a C++ program. But in this problem, the Pascal Code won an <abbr title="Accepted">AC</abbr> when the C++ Code got an <abbr title="Time Limit Exceeded">TLE</abbr> unless you hand in the code by C++ but not G++. 
+本题需要我们维护一个单调队列。单调队列中的元素不仅在值上单调（升序或降序），在数组下标上也是单调的（仅升序）。当我们需要插入一个新元素，将窗口向后移动时，我们可以把前端已经超出窗口范围的元素和后端有违单调性的元素抛出。单调队列的头元素总是窗口中最小的（升序时）或最大的（降序时）。
 
 ## 代码
 

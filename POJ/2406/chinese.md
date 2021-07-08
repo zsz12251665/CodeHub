@@ -7,11 +7,9 @@
 
 ## 解法
 
-At first, I wanted to learn about <abbr title="Knuth-Morris-Pratt string searching algorithm">KMP</abbr>. So I tried to solve this problem. But later I found that KMP is not necessary for this problem. 
+让我们记字符串的前 $i$ 个字符为 $p_i$。如果 $p_i$ 是字符串的一个周期，那么必然有 $L\equiv0\pmod i$，其中 $L$ 是字符串的长度。因此我们可以枚举周期长度 $i$ 并检查 $p_i$ 是否是字符串的一个周期。时间复杂度为 $\operatorname{O}(L\operatorname{d}(L))$，其中 $\operatorname{d}(n)$ 表示 $n$ 的因数个数。
 
-Let's mark a prefix of <data value="v{i}"></data> chars of the string as <data value="v{pre}b{v{i}}"></data>. If <data value="v{pre}b{v{i}}"></data> is a period of the string, we must have <data value="o{|}v{s}o{|}o{&equiv;}c{0}o{(}o{mod}v{i}o{)}"></data>, which <data value="o{|}v{s}o{|}"></data> is the length of the string <data value="v{s}"></data>. So we can enumerate the length of the period <data value="v{i}"></data>, and then scan the string to check whether the <data value="v{pre}b{v{i}}"></data> is a period of the string. So the time complexity is about <data value="o{O}o{(}o{d}o{(}o{|}v{s}o{|}o{)}o{}o{|}v{s}o{|}o{)}"></data>, which <data value="o{d}o{(}v{n}o{)}"></data> means the number of factors of <data value="v{n}"></data>. 
-
-By the way, the time for scanning the string once will not be as large as <data value="o{O}o{(}o{|}v{s}o{|}o{)}"></data> while solving the problem. This is because when you find that a prefix is not a period, you abandon it immediately so that you don't need to scan to the end of the string. 
+顺便说一下，解题时扫描字符串的时间并不会有 $L$ 那么大。当你发现一个前缀不是周期时，你会立刻停止扫描，而不是一直扫描到字符串末尾。
 
 ## 代码
 

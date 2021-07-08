@@ -1,52 +1,37 @@
-#include<cstdio>
+#include <cstdio>
+#include <deque>
 using namespace std;
-long a[1000000],queue[1000000],index[1000000];
+const int SIZE = 1e6 + 1;
+int a[SIZE];
+deque<int> q; // The monotonous queue which keeps the indexes of the values
 int main()
 {
-	long n,k;
-	scanf("%ld%ld",&n,&k);
-	for(long i=0;i<n;++i)
-		scanf("%ld",&a[i]);
-	long head=0,foot=0;
-	for(long i=0;i<k-1;++i)
+	int n, k;
+	scanf("%d%d", &n, &k);
+	for (int i = 0; i < n; ++i)
+		scanf("%d", &a[i]);
+	q.clear();
+	for (int i = 0; i < n; ++i)
 	{
-		while(foot>head && a[i]<queue[foot-1])// Pop out the nodes in the end to keep the queue monotonous
-			--foot;
-		queue[foot]=a[i];
-		index[foot]=i;
-		++foot;
-	}
-	for(long i=k-1;i<n;++i)
-	{
-		while(foot>head && a[i]<queue[foot-1])// Pop out the nodes in the end to keep the queue monotonous
-			--foot;
-		queue[foot]=a[i];
-		index[foot]=i;
-		++foot;
-		if(index[head]<=i-k)// Pop out the node that has been out of the range
-			++head;
-		printf("%ld ",queue[head]);
+		while (!q.empty() && a[i] < a[q.back()]) // Pop out the elements in the end to keep the queue monotonous
+			q.pop_back();
+		while (!q.empty() && q.front() <= i - k) // Pop out the elements in the front that has been out of the range
+			q.pop_front();
+		q.push_back(i);
+		if (i >= k - 1)
+			printf("%d ", a[q.front()]); // Print the minimum elements
 	}
 	putchar('\n');
-	head=foot=0;
-	for(long i=0;i<k-1;++i)
+	q.clear();
+	for (int i = 0; i < n; ++i)
 	{
-		while(foot>head && a[i]>queue[foot-1])// Pop out the nodes in the end to keep the queue monotonous
-			--foot;
-		queue[foot]=a[i];
-		index[foot]=i;
-		++foot;
-	}
-	for(long i=k-1;i<n;++i)
-	{
-		while((foot>head)&&(a[i]>queue[foot-1]))// Pop out the nodes in the end to keep the queue monotonous
-			--foot;
-		queue[foot]=a[i];
-		index[foot]=i;
-		++foot;
-		if(index[head]<=i-k)// Pop out the node that has been out of the range
-			++head;
-		printf("%ld ",queue[head]);
+		while (!q.empty() && a[i] > a[q.back()]) // Change the comparer to reverse the order
+			q.pop_back();
+		while (!q.empty() && q.front() <= i - k)
+			q.pop_front();
+		q.push_back(i);
+		if (i >= k - 1)
+			printf("%d ", a[q.front()]); // Print the maximum elements
 	}
 	return 0;
 }

@@ -7,9 +7,16 @@
 
 ## 解法
 
-This problem needs a segment tree to solve. A segment tree is used to solve problems based on ranges. For example, this problem requires us to provide two kinds of operation, which are setting values on a range and asking number of the colours on a range. 
+本题需要一棵线段树。线段树是一种用来解决基于区间上问题的数据结构。本题需要我们实现两种操作：给指定区间上色和询问指定区间的颜色数。
 
-The first step is to build and initialize the segment tree. As we all know, the segment tree is a tree of which the nodes keeps the information of the range <data value="o{[}v{l}o{,}v{r}o{]}"></data> and its two children keep the information of the range <data value="o{[}v{l}o{,}f{v{l}o{+}o{r}l{}c{2}}o{]}"></data> and <data value="o{[}f{v{l}o{+}o{r}l{}c{2}}o{+}c{1}o{,}v{r}o{]}"></data>. So we can use a <abbr title="Depth-First Search">DFS</abbr> to format it. By the way, we will also need to use the state compression to keep the states of thirty colours in an integer. Then we can read the operations. For each setting operation, we can finish it in <data value="o{O}o{(}o{lg}v{n}o{)}"></data>. This is because when the operation come to a node, we can check if the range of the node is in the range of the operation. If it is, set the lazy tag up and return, or pass down the lazy tag, send the operation to its children and update colour state. For each asking operation, it can also be finished in <data value="o{O}o{(}o{lg}v{n}o{)}"></data>. It is similar to the setting operation but we just need to return the the compressed state and then count the number of colours. So the time complexity of the whole algorithm is <data value="o{O}o{(}v{n}o{}o{lg}v{n}o{)}"></data>. 
+首先我们要构建并初始化线段树。线段树上的一个节点保存了区间 $[l,r]$ 上的信息。它的两个子节点分别保存区间 $\left[l,\left\lfloor\frac{l+r}2\right\rfloor\right]$ 和 $\left[\left\lfloor\frac{l+r}2\right\rfloor+1,r\right]$ 上的信息。因此我们可以用一个 <abbr title="深度优先搜索">DFS</abbr> 来初始化这棵树。顺便一提，我们需要用二进制压缩来将三十个颜色的集合存成一个整数。线段树是一棵有 $L$ 个叶节点的满二叉树，因此初始化的时间复杂度为 $\operatorname{O}(L)$。
+
+然后我们实现操作：
+
+- 对于每个上色操作，当到达一个节点时，我们先检查节点区间是否位于操作区间中，如果是，直接设置懒标记并更新颜色集合即可。否则我们需要先下传懒标记（如果有），将操作传递给子节点并根据子节点的颜色集合更新自己的颜色集合。因为我们使用了懒标记来剪枝，每层中至多只有两个节点需要向下传递操作。于是我们可以在 $\operatorname{O}(\log L)$ 内完成操作。
+- 对于每个询问操作，它也可以在$\operatorname{O}(\log L)$ 内完成。它和上色操作类似，但我们需要传回颜色集合。如果查询区间覆盖了节点区间，直接返回节点的颜色集合。否则先下传懒标记（如果有），将操作传递给子节点并将子节点的结果取并集作为自己的结果。
+
+整个算法的时间复杂度为 $\operatorname{O}(L\log L)$。
 
 ## 代码
 

@@ -6,8 +6,7 @@
 - [POJ](http://poj.org/problem?id=2506)
 
 ## 解法
-
-Let's solve the problem step by step. It is obvious that there is only one method to tile a <data value="c{2}o{&times;}c{0}"></data> rectangle(use no tiles) and a <data value="c{2}o{&times;}c{1}"></data> rectangle(use a <data value="c{2}o{&times;}c{1}"></data> tile). How about the number of methods for longer rectangles? Well, a method for a <data value="c{2}o{&times;}v{i}"></data> rectangle must have a standing <data value="c{2}o{&times;}c{1}"></data> tile, a <data value="c{2}o{&times;}c{2}"></data> tile or two lying <data value="c{2}o{&times;}c{1}"></data> tiles, right? If there is a standing <data value="c{2}o{&times;}c{1}"></data> tile, the number of methods will be the number of methods for a <data value="c{2}o{&times;}o{(}v{i}o{-}c{1}o{)}"></data> rectangle. If there is a <data value="c{2}o{&times;}c{2}"></data> tile or two lying <data value="c{2}o{&times;}c{1}"></data> tiles, the number of methods will be the number of methods for a <data value="c{2}o{&times;}o{(}v{i}o{-}c{2}o{)}"></data> rectangle. So the number of methods will be the number of methods for a <data value="c{2}o{&times;}o{(}v{i}o{-}c{1}o{)}"></data> rectangle plus twice the number of methods for a <data value="c{2}o{&times;}o{(}v{i}o{-}c{2}o{)}"></data> rectangle in total. The data range is lower than 250, so we can pretreat the numbers for every <data value="v{i}"></data>. 
+显然只有一种方法拼出 $2\times0$ 的矩形（无需任何瓦片）和 $2\times1$ 的矩形（用一个 $2\times1$ 的瓦片）。那么更长的矩形呢？一个 $2\times i(i\le2)$ 的矩形必然以一个直立的 $2\times1$ 的瓦片、一个 $2\times2$ 的瓦片或者两个平躺的 $2\times1$ 的瓦片结尾。如果是一个直立的 $2\times1$ 的瓦片，其方案数就是 $2\times(i-1)$ 的矩形的方案数。如果是一个 $2\times2$ 的瓦片或是两个平躺的 $2\times1$ 的瓦片，其方案数均为 $2\times(i-2)$ 的矩形的方案数。因此总方案数为 $2\times(i-1)$ 的矩形的方案数加上 $2\times(i-2)$ 的矩形的方案数的两倍。因为数据范围只有 $0\le n\le250$，所以我们可以预处理出每一个 $n$ 的答案。
 
 ## 代码
 
