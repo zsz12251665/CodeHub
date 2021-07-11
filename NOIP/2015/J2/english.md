@@ -1,24 +1,14 @@
-<h1>NOIP 2015J2</h1>
-<p><time>2017-02-09 20:06</time> by zsz12251665</p>
-<section>
-	<h2>Problem</h2>
-	<ul class="buttonList">
-		<a target="_blank" href="https://www.luogu.com.cn/problem/P2670"><li>Luogu</li></a>
-		<a target="_blank" href="https://www.vijos.org/p/1975"><li>Vijos</li></a>
-	</ul>
-</section>
-<section>
-	<h2>Solution</h2>
-	<p>As the data range is lower than 100, we can solve the problem by scanning. Scan each area in the minefield and count how many mines is beside it. But watch out that don't make your array subscript out of range! </p>
-</section>
-<section>
-	<h2>Code</h2>
-	<section>
-		<h3>Pascal</h3>
-		<code lang="pas"></code>
-	</section>
-	<section>
-		<h3>C++</h3>
-		<code lang="cpp"></code>
-	</section>
-</section>
+# NOIP 2015J2
+
+## Description
+
+- [Luogu](https://www.luogu.com.cn/problem/P2670)
+- [Vijos](https://www.vijos.org/p/1975)
+
+## Solution
+
+As the data range is lower than 100, we can solve the problem by scanning. Scan each area in the minefield and count how many mines is beside it. But watch out that don't make your array subscript out of range!
+
+## Code
+
+- [Solution](NOIP.2015J2.0.cpp)
