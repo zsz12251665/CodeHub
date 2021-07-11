@@ -8,7 +8,7 @@
 
 ## Solution
 
-Since <data value="o{|}v{s}o{|}o{&le;}c{10}p{c{6}}"></data> now, we cannot use the <data value="o{O}o{(}o{|}v{s}o{|}p{c{2}}o{)}"></data> algorithm in <a href="/codes/?oj=CF&pid=1326D1">CF 1326D1</a> or you will get a <abbr title="Time Limit Exceeded">TLE</abbr>.
+Since <data value="o{|}v{s}o{|}o{&le;}c{10}p{c{6}}"></data> now, we cannot use the <data value="o{O}o{(}o{|}v{s}o{|}p{c{2}}o{)}"></data> algorithm in [CF 1326D1](/CF/1326/D1/english.md) or you will get a <abbr title="Time Limit Exceeded">TLE</abbr>.
 
 Just like we did in the easy version, we find the longest prefix which is symmetric to the suffix of the same length and the longest palindrome which is a prefix or suffix of the remained part. To find the palindrome in <data value="o{O}o{(}o{|}v{s}o{|}o{)}"></data>, we need the Manacher's algorithm.
 

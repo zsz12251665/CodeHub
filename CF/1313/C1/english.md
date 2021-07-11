@@ -8,7 +8,7 @@
 
 ## Solution
 
-Since <data value="v{n}o{&le;}c{1000}"></data> in this problem, of course we can use the <data value="o{O}o{(}v{n}o{)}"></data> algorithm in <a href="/codes/?oj=CF&pid=1313C2">CF 1313C2</a>. However, we will introduce an <del>violent</del> easy version here.
+Since <data value="v{n}o{&le;}c{1000}"></data> in this problem, of course we can use the <data value="o{O}o{(}v{n}o{)}"></data> algorithm in [CF 1313C2](/CF/1313/C2/english.md). However, we will introduce an ~~violent~~ easy version here.
 
 We notice that the answer should have only one peak according to the requirement of the answer. So we can enumerate the peaks and make both sides monotonic, calculate the total numbers of floors and take the largest one. Because the calculation is <data value="o{O}o{(}v{n}o{)}"></data> for each peak, the total time complexity will be <data value="o{O}o{(}v{n}p{c{2}}o{)}"></data>.
 
