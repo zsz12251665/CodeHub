@@ -4,7 +4,7 @@ int c[2001][2001],sum[2001][2001];
 int main()
 {
 	int t,k,n,m;
-	long ans;
+	int ans;
 	scanf("%d%d",&t,&k);
 	for(int i=1;i<2001;++i)// Make the Pascal Triangle and the prefix sum of the line
 	{
@@ -28,7 +28,7 @@ int main()
 				ans+=sum[i][m];
 			else
 				ans+=sum[i][i];
-		printf("%ld\n",ans);
+		printf("%d\n",ans);
 		--t;
 	}
 	return 0;

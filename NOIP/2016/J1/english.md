@@ -7,7 +7,7 @@
 
 ## Solution
 
-Calculate the cost of each kinds of pencil and compare them. Pick the smallest one as the answer. But pay attention that you may buy one pack more if <data value="v{n}o{|}v{amount}"></data>.
+Calculate the cost of each kinds of pencil and compare them. Pick the smallest one as the answer.
 
 ## Code
 

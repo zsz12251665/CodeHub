@@ -2,8 +2,8 @@
 using namespace std;
 int main()
 {
-	long n;
-	scanf("%ld",&n);
+	int n;
+	scanf("%d",&n);
 	if(n<0)// Check if n is a negative number
 	{
 		putchar('-');

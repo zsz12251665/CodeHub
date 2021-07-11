@@ -2,9 +2,9 @@
 using namespace std;
 int main()
 {
-	long n,ans=0;
+	int n,ans=0;
 	int x;
-	scanf("%ld%d",&n,&x);
+	scanf("%d%d",&n,&x);
 	for(int i=0;i<n;++i)// Enumerate integers
 	{
 		int t=i+1;
@@ -15,6 +15,6 @@ int main()
 			t/=10;
 		}
 	}
-	printf("%ld",ans);
+	printf("%d",ans);
 	return 0;
 }

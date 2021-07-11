@@ -1,14 +1,14 @@
 #include<cstdio>
 using namespace std;
-long long cube(long a)
+long long cube(int a)
 {
 	return (long long)a*a*a;
 }
-long count(long long m)// Count how many blocks can be added at most
+int count(long long m)// Count how many blocks can be added at most
 {
 	if(m<8)
 		return m;
-	long a=1;
+	int a=1;
 	while(cube(a+1)<=m)
 		++a;
 	if(cube(a)-1-cube(a-1)>m-cube(a))// Choose the situation with the maximum volume remained
@@ -19,7 +19,7 @@ long count(long long m)// Count how many blocks can be added at most
 int main()
 {
 	long long m,x=0;
-	long h=0,a;
+	int h=0,a;
 	for(scanf("%lld",&m);m>0;)// m is the volume remained
 	{
 		++h;
@@ -36,6 +36,6 @@ int main()
 			x+=cube(a);
 		}
 	}
-	printf("%ld %lld\n",h,x);
+	printf("%d %lld\n",h,x);
 	return 0;
 }

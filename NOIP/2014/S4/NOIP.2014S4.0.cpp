@@ -1,6 +1,6 @@
 #include<cstdio>
 using namespace std;
-long k[129][129];
+int k[129][129];
 int main()
 {
 	int d,n,cnt=0;
@@ -12,7 +12,7 @@ int main()
 	for(int i=0,x,y;i<n;++i)
 	{
 		scanf("%d%d",&x,&y);
-		scanf("%ld",&k[x][y]);
+		scanf("%d",&k[x][y]);
 	}
 	for(int x=0;x<129;++x)// Enumerate the center of the transmitter
 		for(int y=0;y<129;++y)

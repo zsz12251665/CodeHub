@@ -1,6 +1,6 @@
 #include<cstdio>
 using namespace std;
-void exgcd(long a,long b,long &x,long &y)
+void exgcd(int a,int b,int &x,int &y)
 {
 	if(b==0)// The recursion border
 	{
@@ -13,9 +13,9 @@ void exgcd(long a,long b,long &x,long &y)
 }
 int main()
 {
-	long a,b,x,y;
-	scanf("%ld%ld",&a,&b);
+	int a,b,x,y;
+	scanf("%d%d",&a,&b);
 	exgcd(a,b,x,y);
-	printf("%ld",(x%b+b)%b);// Output the minimum positive integer
+	printf("%d",(x%b+b)%b);// Output the minimum positive integer
 	return 0;
 }

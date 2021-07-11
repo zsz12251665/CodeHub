@@ -7,9 +7,9 @@
 
 ## Solution
 
-The problem is a 01 knapsack problem. So we can solve it by a <var><abbr title="dynamic programming">dp</abbr></var> algorithm.
+The problem is a 01 knapsack problem. We can solve it by using <abbr title="dynamic programming">dp</abbr>.
 
-Usually, a dp algorithm is made up of a <data value="v{dp}"></data> array and the state transition formula. For a knapsack problem, the formula is <data value="v{dp}b{v{i}}o{=}o{max}i{v{cost}b{v{i}}l{}v{j}o{=}v{t}}o{(}v{dp}b{v{j}o{-}v{cost}b{v{i}}}o{+}v{price}b{v{i}}o{)}"></data>. The use of it will be shown in the code below.
+Usually, a dp algorithm is made up of a state array $f$ and the state transition formula. For a knapsack problem, the formula is $f_i=\max_{t\le j\le c_i}(dp_{j-c_i}+p_i)$. The use of it will be shown in the code below.
 
 ## Code
 

@@ -5,7 +5,7 @@ int main()
 {
 	int n,k;
 	scanf("%d%d",&n,&k);
-	long ans=0;
+	int ans=0;
 	for(int i=0;i<n;++i)
 		scanf("%d",&a[i]);
 	for(int i=1;i<n;++i)// Enumerate any two consecutive days
@@ -14,7 +14,7 @@ int main()
 			ans+=k-a[i]-a[i-1];// Add the second day to the requirement
 			a[i]=k-a[i-1];
 		}
-	printf("%ld\n",ans);
+	printf("%d\n",ans);
 	for(int i=0;i<n;++i)
 		printf("%d ",a[i]);
 	return 0;

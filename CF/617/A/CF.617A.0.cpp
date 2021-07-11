@@ -2,8 +2,8 @@
 using namespace std;
 int main()
 {
-	long n;
-	scanf("%ld",&n);
-	printf("%ld",(n-1)/5+1);
+	int n;
+	scanf("%d",&n);
+	printf("%d",(n-1)/5+1);
 	return 0;
 }

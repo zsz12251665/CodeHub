@@ -7,7 +7,7 @@
 
 ## Solution
 
-Well, this problem can be solved by enumeration. We could enumerate every pairs of numbers in <data value="o{[}c{1}o{,}v{L}o{]}"></data> to find the closest one because <data value="v{L}o{&le;}c{100}"></data>.
+Well, this problem can be solved by enumeration. We could enumerate every pairs of numbers in $[1,L]$ to find the closest one because $L\le 100$.
 
 ## Code
 

@@ -2,8 +2,8 @@
 using namespace std;
 int main()
 {
-	long a,b,c;
-	scanf("%ld%ld%ld",&a,&b,&c);
+	int a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
 	if(a==b)
 	{
 		printf("YES");

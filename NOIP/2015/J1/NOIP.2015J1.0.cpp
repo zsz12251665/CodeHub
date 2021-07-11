@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
 	int i=0,k;
-	long ans=0;
+	int ans=0;
 	scanf("%d",&k);
 	while(k>0)
 	{
@@ -15,6 +15,6 @@ int main()
 			}
 		++i;
 	}
-	printf("%ld",ans);
+	printf("%d",ans);
 	return 0;
 }

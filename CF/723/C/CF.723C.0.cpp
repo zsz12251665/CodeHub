@@ -1,6 +1,6 @@
 #include<cstdio>
 using namespace std;
-long a[2000];
+int a[2000];
 int b[2001];
 int main()
 {
@@ -10,7 +10,7 @@ int main()
 		b[i]=0;
 	for(int i=0;i<n;++i)// Input the playlist and count the number of the songs that each band will sing
 	{
-		scanf("%ld",&a[i]);
+		scanf("%d",&a[i]);
 		if(a[i]<=m)
 			b[a[i]]++;
 	}

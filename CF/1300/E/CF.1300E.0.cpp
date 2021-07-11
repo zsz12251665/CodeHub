@@ -1,14 +1,14 @@
 #include<cstdio>
 using namespace std;
 double p[1000000];// p[i] is the numerator of the average
-long q[1000000];// q[i] is the denominator of the average as well as the number of elements
+int q[1000000];// q[i] is the denominator of the average as well as the number of elements
 int main()
 {
-	long n,size=0;// size is the number of elements inside the stack
-	scanf("%ld",&n);
-	for(long i=0,tmp;i<n;++i)
+	int n,size=0;// size is the number of elements inside the stack
+	scanf("%d",&n);
+	for(int i=0,tmp;i<n;++i)
 	{
-		scanf("%ld",&tmp);
+		scanf("%d",&tmp);
 		p[size]=tmp;
 		q[size]=1;
 		while(size>0 && p[size]/q[size]<p[size-1]/q[size-1])// Average with the previous block
@@ -19,8 +19,8 @@ int main()
 		}
 		++size;
 	}
-	for(long i=0;i<size;++i)
-		for(long j=0;j<q[i];++j)
+	for(int i=0;i<size;++i)
+		for(int j=0;j<q[i];++j)
 			printf("%.10lf\n",p[i]/q[i]);
 	return 0;
 }

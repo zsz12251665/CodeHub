@@ -1,9 +1,9 @@
 #include<cstdio>
 using namespace std;
-long a[200000],p[200000],s[200000];
-void qsort(long l,long r)// Sort the heroes
+int a[200000],p[200000],s[200000];
+void qsort(int l,int r)// Sort the heroes
 {
-	long x=l,y=r,std_p=p[(l+r)/2],std_s=s[(l+r)/2];
+	int x=l,y=r,std_p=p[(l+r)/2],std_s=s[(l+r)/2];
 	while(x<y)
 	{
 		while(p[x]>std_p || p[x]==std_p && s[x]>std_s)
@@ -12,7 +12,7 @@ void qsort(long l,long r)// Sort the heroes
 			--y;
 		if(x<=y)
 		{
-			long tmp=p[x];
+			int tmp=p[x];
 			p[x]=p[y];
 			p[y]=tmp;
 			tmp=s[x];
@@ -27,35 +27,35 @@ void qsort(long l,long r)// Sort the heroes
 }
 int main()
 {
-	long t;
-	for(scanf("%ld",&t);t>0;--t)
+	int t;
+	for(scanf("%d",&t);t>0;--t)
 	{
-		long n,m,max=-1,ans=0;
-		scanf("%ld",&n);
-		for(long i=0;i<n;++i)
+		int n,m,max=-1,ans=0;
+		scanf("%d",&n);
+		for(int i=0;i<n;++i)
 		{
-			scanf("%ld",&a[i]);
+			scanf("%d",&a[i]);
 			max=(max<a[i])?a[i]:max;
 		}
-		scanf("%ld",&m);
-		for(long i=0;i<m;++i)
-			scanf("%ld%ld",&p[i],&s[i]);
+		scanf("%d",&m);
+		for(int i=0;i<m;++i)
+			scanf("%d%d",&p[i],&s[i]);
 		qsort(0,m-1);
 		if(max>p[0])// Check whether all the monsters can be defeated
 		{
 			printf("-1\n");
 			continue;
 		}
-		for(long i=0,max=-1;i<m;++i)// Remove the useless heroes
+		for(int i=0,max=-1;i<m;++i)// Remove the useless heroes
 			if(s[i]>max)
 				max=s[i];
 			else
 				p[i]=-1;
 		qsort(0,m-1);
-		for(long i=0;i<n;++ans)// Use greedy algorithm to defeat as many monsters as possible
+		for(int i=0;i<n;++ans)// Use greedy algorithm to defeat as many monsters as possible
 		{
-			long cnt=0,max=a[i];
-			for(long j=0;j<m && i<n && max<=p[j];++j)// Replace a hero with less power but more endurance
+			int cnt=0,max=a[i];
+			for(int j=0;j<m && i<n && max<=p[j];++j)// Replace a hero with less power but more endurance
 				while(i<n && cnt<s[j] && max<=p[j])// Defeating monsters
 				{
 					++i;

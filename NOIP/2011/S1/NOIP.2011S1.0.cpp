@@ -1,14 +1,14 @@
 #include<cstdio>
 using namespace std;
-long a[10000],b[10000],g[10000],k[10000];
+int a[10000],b[10000],g[10000],k[10000];
 int main()
 {
 	int n;
 	scanf("%d",&n);
 	for(int i=0;i<n;++i)
-		scanf("%ld%ld%ld%ld",&a[i],&b[i],&g[i],&k[i]);
-	long x,y;
-	scanf("%ld%ld",&x,&y);
+		scanf("%d%d%d%d",&a[i],&b[i],&g[i],&k[i]);
+	int x,y;
+	scanf("%d%d",&x,&y);
 	for(int i=n-1;i>=0;--i)// Remember that we need to output the top one
 		if(a[i]<=x && b[i]<=y && a[i]+g[i]>=x && b[i]+k[i]>=y)// If it has covered the coordinate, output it then exit
 		{

@@ -1,10 +1,10 @@
 #include<cstdio>
 using namespace std;
-long a[200000];
-void qsort(long l,long r)// Sort the array in increase order
+int a[200000];
+void qsort(int l,int r)// Sort the array in increase order
 {
-	long x=l,y=r;
-	long std=a[(l+r)/2];
+	int x=l,y=r;
+	int std=a[(l+r)/2];
 	while(x<y)
 	{
 		while(a[x]<std)
@@ -13,7 +13,7 @@ void qsort(long l,long r)// Sort the array in increase order
 			--y;
 		if(x<=y)
 		{
-			long tmp=a[x];
+			int tmp=a[x];
 			a[x++]=a[y];
 			a[y--]=tmp;
 		}
@@ -28,12 +28,12 @@ int main()
 	int t;
 	for(scanf("%d",&t);t>0;--t)
 	{
-		long n;
-		scanf("%ld",&n);
-		for(long i=0;i<2*n;++i)
-			scanf("%ld",&a[i]);
+		int n;
+		scanf("%d",&n);
+		for(int i=0;i<2*n;++i)
+			scanf("%d",&a[i]);
 		qsort(0,2*n-1);
-		printf("%ld\n",a[n]-a[n-1]);
+		printf("%d\n",a[n]-a[n-1]);
 	}
 	return 0;
 }

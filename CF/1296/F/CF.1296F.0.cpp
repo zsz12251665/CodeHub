@@ -3,15 +3,15 @@ using namespace std;
 struct survey
 {
 	int a,b;
-	long g;
+	int g;
 };
 survey s[5000];
 int des[10000],nxt[10000],h[5000],que[5000],fa[5000],d[5000];
-long f[5000];// f[i] is the scenery beauty of the edge connecting i and fa[i]
+int f[5000];// f[i] is the scenery beauty of the edge connecting i and fa[i]
 void qsort(int l,int r)// Sort the survey array in increasing order of g
 {
 	int x=l,y=r;
-	long std=s[(l+r)/2].g;
+	int std=s[(l+r)/2].g;
 	while(x<y)
 	{
 		while(s[x].g<std)
@@ -79,7 +79,7 @@ int main()
 	scanf("%d",&m);
 	for(int i=0;i<m;++i)// Input the surveys
 	{
-		scanf("%d%d%ld",&s[i].a,&s[i].b,&s[i].g);
+		scanf("%d%d%d",&s[i].a,&s[i].b,&s[i].g);
 		--s[i].a;
 		--s[i].b;
 	}
@@ -97,7 +97,7 @@ int main()
 	for(int i=0;i<m;++i)// Validate the surveys
 	{
 		int lca=find_lca(s[i].a,s[i].b);
-		long min=2147483647;
+		int min=2147483647;
 		for(int j=s[i].a;j!=lca;j=fa[j])
 			if(f[j]<min)
 				min=f[j];

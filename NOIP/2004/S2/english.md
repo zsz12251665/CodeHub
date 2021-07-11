@@ -11,7 +11,7 @@ Well, let's define that the bunches of fruits are <data value="v{fruit}b{1}"></d
 
 What's important is that we can use a heap to keep the fruit array. The heap is a data structure with an <data value="o{O}o{(}o{lg}v{n}o{)}"></data> insert and an <data value="o{O}o{(}o{lg}v{n}o{)}"></data> extract. With the heap to keep the <data value="v{fruit}"></data> array, we can reduce the time complexity to <data value="o{O}o{(}v{n}o{}o{lg}v{n}o{)}"></data>, which is fast enough to solve the problem.
 
-While building up the heap, I found a way to make fewer mistakes when extracting. That is fill the null part with <data value="c{2147483647}"></data>. That means if a point has no child, it has a child or two children with <data value="c{2147483647}"></data>. That can be very helpful because I don't need to judge if the point has child or not by the size of the heap.
+While building up the heap, I found a way to make fewer mistakes when extracting. That is fill the null part with $2147483647$. That means if a point has no child, it has a child or two children with $2147483647$. That can be very helpful because I don't need to judge if the point has child or not by the size of the heap.
 
 ## Code
 

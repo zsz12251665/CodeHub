@@ -1,10 +1,10 @@
 #include<cstdio>
 using namespace std;
-long c[300000],rank[300000];// rank[i] keeps the order of c[i]
+int c[300000],rank[300000];// rank[i] keeps the order of c[i]
 bool timeline[600000];
-void qsort(long l,long r)
+void qsort(int l,int r)
 {
-	long x=l,y=r,std=c[rank[(l+r)/2]];
+	int x=l,y=r,std=c[rank[(l+r)/2]];
 	while(x<y)
 	{
 		while(c[rank[x]]>std)
@@ -13,7 +13,7 @@ void qsort(long l,long r)
 			--y;
 		if(x<=y)
 		{
-			long tmp=rank[x];
+			int tmp=rank[x];
 			rank[x++]=rank[y];
 			rank[y--]=tmp;
 		}
@@ -25,17 +25,17 @@ void qsort(long l,long r)
 }
 int main()
 {
-	long n,k;
-	scanf("%ld%ld",&n,&k);
-	for(long i=0;i<n;++i)
+	int n,k;
+	scanf("%d%d",&n,&k);
+	for(int i=0;i<n;++i)
 	{
-		scanf("%ld",&c[i]);
+		scanf("%d",&c[i]);
 		rank[i]=i;
 		timeline[i]=false;
 	}
 	qsort(0,n-1);
 	long long sum=0;
-	for(long i=0,mt=0;i<n;++i)// mt is the minimum time that a plane can depart now
+	for(int i=0,mt=0;i<n;++i)// mt is the minimum time that a plane can depart now
 	{
 		if(rank[i]>mt+k)// Check if it is still able to depart as the initial schedule planned
 		{
@@ -52,7 +52,7 @@ int main()
 			++mt;
 	}
 	printf("%lld\n",sum);
-	for(long i=0;i<n;++i)
-		printf("%ld ",c[i]+1);// C++ starts the array from 0, so do not forget to plus 1
+	for(int i=0;i<n;++i)
+		printf("%d ",c[i]+1);// C++ starts the array from 0, so do not forget to plus 1
 	return 0;
 }

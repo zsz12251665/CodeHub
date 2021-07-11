@@ -7,9 +7,9 @@
 
 ## Solution
 
-This problem is testing our fast power algorithm because of the <data value="c{10}p{v{k}}"></data>.
+This problem is testing our fast power algorithm because of the $10^k$.
 
-First, we should transform the index into binary. For example, we have <data value="c{10}p{23}o{=}c{10}p{o{(}c{10111}o{)}b{2}}o{=}c{10}p{16}o{&times;}c{10}p{4}o{&times;}c{10}p{2}o{&times;}c{10}p{1}"></data>. It is not difficult to find it we can square the base for times to get <data value="c{10}p{1}"></data>, <data value="c{10}p{2}"></data>, <data value="c{10}p{4}"></data> and <data value="c{10}p{16}"></data>. That can reduce the time complexity to <data value="o{O}o{(}o{lg}v{n}o{)}"></data>.
+First, we should transform the index into binary. For example, we have $10^23=10^{(10111)_2}=10^{16}\times10^4\times10^2\times+10^1$. It is not difficult to find it we can square the base for times to get $10^1$, $10^2$, $10^4$ and $10^{16}$. That can reduce the time complexity to $\operatorname{O}(\log n)$.
 
 ## Code
 

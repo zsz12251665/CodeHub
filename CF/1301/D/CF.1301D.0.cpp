@@ -5,8 +5,8 @@ int c[3000];// How many times Bashar should moves
 int main()
 {
 	int n,m;
-	long k;
-	scanf("%d%d%ld",&n,&m,&k);
+	int k;
+	scanf("%d%d%d",&n,&m,&k);
 	if(4*n*m-2*n-2*m<k)// The distance is longer than the maximum available
 	{
 		printf("NO");

@@ -1,16 +1,16 @@
 #include<cstdio>
 using namespace std;
-long num[1000];// num[i] contains an a[j] that a[j]%m==i
+int num[1000];// num[i] contains an a[j] that a[j]%m==i
 int main()
 {
-	long n;
+	int n;
 	int m;
-	scanf("%ld%d",&n,&m);
+	scanf("%d%d",&n,&m);
 	for(int i=0;i<m;++i)
 		num[i]=-1;// -1 means that there is no number yet
-	for(long a;n>0;--n)// Find same remainders
+	for(int a;n>0;--n)// Find same remainders
 	{
-		scanf("%ld",&a);
+		scanf("%d",&a);
 		if(num[a%m]==-1)
 			num[a%m]=a;
 		else// Find a second one

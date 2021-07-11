@@ -1,9 +1,9 @@
 #include<cstdio>
 using namespace std;
 bool map[1000000],a[1000000][4];
-long n,m;
+int n,m;
 char s[1000001];
-void search(long p,int mode)
+void search(int p,int mode)
 {
 	a[p][mode]=true;
 	switch(mode)
@@ -38,11 +38,11 @@ void search(long p,int mode)
 }
 int main()
 {
-	scanf("%ld%ld",&n,&m);
-	for(long i=0;i<n;++i)
+	scanf("%d%d",&n,&m);
+	for(int i=0;i<n;++i)
 	{
 		scanf("%s",s);
-		for(long j=0;j<m;++j)
+		for(int j=0;j<m;++j)
 		{
 			map[i*m+j]=s[j]=='.';
 			a[i*m+j][0]=a[i*m+j][1]=a[i*m+j][2]=a[i*m+j][3]=false;
@@ -57,7 +57,7 @@ int main()
 	search(n*m-1,1);// Search from end to start
 	search(0,2);// Search with n first
 	search(0,3);// Search with m first
-	for(long i=1;i<n*m-1;++i)// Find the common cell except the start and the end
+	for(int i=1;i<n*m-1;++i)// Find the common cell except the start and the end
 		if(a[i][2] && a[i][3])
 		{
 			putchar('1');

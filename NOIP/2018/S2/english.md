@@ -6,9 +6,9 @@
 
 ## Solution
 
-Well, though it is a little difficult to find it, we can observe that this problem can be solved by removing ones that can be made up of other kinds of currency. In first group of the first example data, <data value="c{6}"></data> can be replaced by <data value="c{2}o{&times;}c{3}"></data> and <data value="c{19}"></data> can be replaced by <data value="c{3}o{&times;}c{3}o{+}c{10}"></data> so that only <data value="c{3}"></data> and <data value="c{10}"></data> are necessary.
+Well, though it is a little difficult to find it, we can observe that this problem can be solved by removing ones that can be made up of other kinds of currency. In first group of the first example data, $6$ can be replaced by $2\times3$ and $19$ can be replaced by $3\times3+10$ so that only $3$ and $10$ are necessary.
 
-Then the problem is much easy to solve. Because <data value="v{a}b{v{i}}o{&le;}c{25000}"></data>, so we can make an array recording whether this amount of money can we made up or not. After that, we sort all kinds of currency and checked if they can be made up. If it can, remove it. Or update the array as we add a new kind of currency. Then the problem is solved.
+Then the problem is much easy to solve. Because $a_i\le25000$, so we can make an array recording whether this amount of money can we made up or not. After that, we sort all kinds of currency and checked if they can be made up. If it can, remove it. Or update the array as we add a new kind of currency. Then the problem is solved.
 
 P. S. It is not so obvious to prove that our conclusion is right. So here is the proof.
 

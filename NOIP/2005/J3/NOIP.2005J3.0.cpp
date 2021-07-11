@@ -1,6 +1,6 @@
 #include<cstdio>
 using namespace std;
-long dp[1001];
+int dp[1001];
 int main()
 {
 	for(int i=0;i<1001;++i)// Initialize the dp array
@@ -15,6 +15,6 @@ int main()
 			if(dp[j]<dp[j-cost]+price)// dp=max(dp[j-cost]+price)
 				dp[j]=dp[j-cost]+price;
 	}
-	printf("%ld",dp[t]);
+	printf("%d",dp[t]);
 	return 0;
 }

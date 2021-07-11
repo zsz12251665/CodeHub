@@ -22,6 +22,6 @@ int main()
 		b=a-b;// b=(a0+b0)-b0=a0
 		a=a-b;// a=(a0+b0)-a0=b0
 	}
-	printf("%ld",a-c);
+	printf("%d",a-c);
 	return 0;
 }

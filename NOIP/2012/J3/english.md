@@ -7,7 +7,7 @@
 
 ## Solution
 
-This problem is a <abbr title="dynamic programming">dp</abbr> problem. We make the <data value="v{dp}"></data> array that <data value="v{dp}b{v{i}o{,}v{j}}"></data> means after choosing $i$ kinds of flowers we know have $j$ pots of flowers. And the state transition formula will be <data value="v{dp}b{v{i}o{,}v{j}}o{=}o{&sum;}i{o{min}o{(}v{a}b{v{i}}o{,}v{j}o{)}l{}v{k}o{=}c{0}}v{dp}b{v{i}o{-}c{1}o{,}v{j}o{-}v{k}}"></data>, that $k$ means to the number of the pots of the $i$-th flowers. And the answer, of course, will be <data value="v{dp}b{v{n}o{,}v{m}}"></data>.
+This problem requires <abbr title="dynamic programming">dp</abbr>. We define the array $f$ such that $f_{i,j}$ means after choosing $i$ kinds of flowers we know have $j$ pots of flowers. And the state transition formula will be $f_{i,j}=\sum_{k=0}^{\min(a_i,j)}f_{i-1,j-k}$, that $k$ means to the number of the pots of the $i$-th flowers. And the answer, of course, will be $f_{n,m}$.
 
 ## Code
 

@@ -2,10 +2,10 @@
 using namespace std;
 int main()
 {
-	long n,k;
-	scanf("%ld%ld",&n,&k);
+	int n,k;
+	scanf("%d%d",&n,&k);
 	long long ans=0;// Though it should be smaller than 998244353, we are using long long to avoid overlimit when multiplication
-	for(long i=0,p,cnt=1;i<n;++i)
+	for(int i=0,p,cnt=1;i<n;++i)
 	{
 		scanf("%d",&p);
 		if(p>n-k)

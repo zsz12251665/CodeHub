@@ -2,8 +2,8 @@
 using namespace std;
 int main()
 {
-	long n,m,k,x;
-	scanf("%ld%ld%ld%ld",&n,&m,&k,&x);
+	int n,m,k,x;
+	scanf("%d%d%d%d",&n,&m,&k,&x);
 	long long power=1,base=10;// To avoid overlimit, we use long long here
 	while(k>0)// The fast power algorithm
 	{

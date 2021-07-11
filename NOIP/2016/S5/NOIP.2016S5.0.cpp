@@ -1,9 +1,9 @@
 #include<cstdio>
 using namespace std;
-long queue[3][8000000],foot[3],head[3];// Don't worry about the memory because you are given 512 MB in this problem
-void qsort(long l,long r)
+int queue[3][8000000],foot[3],head[3];// Don't worry about the memory because you are given 512 MB in this problem
+void qsort(int l,int r)
 {
-	long x=l,y=r,std=queue[0][(l+r)/2];
+	int x=l,y=r,std=queue[0][(l+r)/2];
 	while(x<y)
 	{
 		while(queue[0][x]>std)
@@ -12,7 +12,7 @@ void qsort(long l,long r)
 			--y;
 		if(x<=y)
 		{
-			long tmp=queue[0][x];
+			int tmp=queue[0][x];
 			queue[0][x++]=queue[0][y];
 			queue[0][y--]=tmp;
 		}
@@ -24,15 +24,15 @@ void qsort(long l,long r)
 }
 int main()
 {
-	long n,m,u,v;
+	int n,m,u,v;
 	int q,t;
-	scanf("%ld%ld%d%ld%ld%d",&n,&m,&q,&u,&v,&t);
-	for(long i=0;i<n;++i)
-		scanf("%ld",&queue[0][i]);
+	scanf("%d%d%d%d%d%d",&n,&m,&q,&u,&v,&t);
+	for(int i=0;i<n;++i)
+		scanf("%d",&queue[0][i]);
 	qsort(0,n-1);
 	head[0]=head[1]=head[2]=foot[1]=foot[2]=0;// Initialize the queues
 	foot[0]=n;
-	for(long i=0;i<m;++i)
+	for(int i=0;i<m;++i)
 	{
 		int mx;// Find the longest worm
 		long long worm=-2147483647;
@@ -52,7 +52,7 @@ int main()
 		foot[2]++;
 	}
 	putchar('\n');
-	for(long i=0;i<n+m;++i)
+	for(int i=0;i<n+m;++i)
 	{
 		int mx;// Find the longest worm
 		long long worm=-2147483647;

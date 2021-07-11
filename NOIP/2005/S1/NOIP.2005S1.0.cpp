@@ -11,7 +11,7 @@ int main()
 {
 	int n;
 	scanf("%d",&n);
-	long total=0;
+	int total=0;
 	int mxp=-65535,mxi;
 	bool officer,west;
 	for(int i=0,test,class,article;i<n;++i)
@@ -58,6 +58,6 @@ int main()
 			mxi=i;
 		}
 	}
-	printf("%s\n%d\n%ld",stu[mxi].name,stu[mxi].prize,total*10);
+	printf("%s\n%d\n%d",stu[mxi].name,stu[mxi].prize,total*10);
 	return 0;
 }

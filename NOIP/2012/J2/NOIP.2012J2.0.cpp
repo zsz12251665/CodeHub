@@ -1,6 +1,6 @@
 #include<cstdio>
 using namespace std;
-long num[10000][100];
+int num[10000][100];
 int floor[10000][100],count[10000];// The count array is used to record the rooms with stairs on this floor
 int main()
 {
@@ -11,7 +11,7 @@ int main()
 		count[i]=0;
 		for(int j=0;j<m;++j)
 		{
-			scanf("%d%ld",&floor[i][j],&num[i][j]);
+			scanf("%d%d",&floor[i][j],&num[i][j]);
 			count[i]+=floor[i][j];
 		}
 	}

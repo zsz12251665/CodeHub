@@ -3,8 +3,8 @@ using namespace std;
 int main()
 {
 	long long l,r,pwr=1;
-	long k;
-	scanf("%lld%lld%ld",&l,&r,&k);
+	int k;
+	scanf("%lld%lld%d",&l,&r,&k);
 	while(l/pwr>=k)// l>=k*pwr, the loop continues until pwr<=l but pwr*k>l
 		pwr*=k;
 	if(pwr==l)// If pwr==l, pwr is the first one, otherwise k*pwr is the first one

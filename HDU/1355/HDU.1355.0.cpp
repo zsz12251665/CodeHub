@@ -40,7 +40,7 @@ int main()
 			if (max_i > last_i) // If max point isn't on the way back
 				k -= (max_i - last_i) * 2;
 		}
-		printf("%ld\n", sum);
+		printf("%d\n", sum);
 	}
 	return 0;
 }

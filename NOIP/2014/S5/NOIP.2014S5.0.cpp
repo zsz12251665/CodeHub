@@ -1,11 +1,11 @@
 #include<cstdio>
 using namespace std;
-long h_nxt[200000],f_nxt[200000],h[10000],f[10000];// the h arrays are the edges in the normal order, the f ones are the edges in the reverse order
+int h_nxt[200000],f_nxt[200000],h[10000],f[10000];// the h arrays are the edges in the normal order, the f ones are the edges in the reverse order
 int h_des[200000],f_des[200000],dis[10000],status[10000],queue[10000];
 bool inqueue[10000];
 void mark(int p)// Mark the points that are linked to the destination
 {
-	for(long i=f[p];i!=-1;i=f_nxt[i])
+	for(int i=f[p];i!=-1;i=f_nxt[i])
 		if(status[f_des[i]]==0)
 		{
 			status[f_des[i]]=1;
@@ -15,8 +15,8 @@ void mark(int p)// Mark the points that are linked to the destination
 int main()
 {
 	int n,s,t;
-	long m;
-	scanf("%d%ld",&n,&m);
+	int m;
+	scanf("%d%d",&n,&m);
 	for(int i=0;i<n;++i)// Initialize the arrays
 	{
 		h[i]=f[i]=-1;// The sign of the end
@@ -24,7 +24,7 @@ int main()
 		dis[i]=32767;
 		inqueue[i]=false;
 	}
-	for(long j=0;j<m;++j)
+	for(int j=0;j<m;++j)
 	{
 		scanf("%d%d",&f_des[j],&h_des[j]);
 		f_des[j]--;// C++ starts the arrays from 0 to n-1, so we minus 1 to make it suitable
@@ -40,7 +40,7 @@ int main()
 	status[t]=1;
 	mark(t);
 	for(int i=0;i<n;++i)// Mark the points that is connect to the points which are not linked to the destination
-		for(long j=h[i];j!=-1;j=h_nxt[j])
+		for(int j=h[i];j!=-1;j=h_nxt[j])
 			if(status[h_des[j]]%10!=1)
 			{
 				status[i]+=10;
@@ -55,7 +55,7 @@ int main()
 		int p=queue[head];
 		head=(head+1)%10000;
 		inqueue[p]=false;
-		for(long j=h[p];j!=-1;j=h_nxt[j])
+		for(int j=h[p];j!=-1;j=h_nxt[j])
 			if(status[h_des[j]]==1 && dis[h_des[j]]>dis[p]+1)// Check if this point is optional
 			{
 				if(!inqueue[h_des[j]])

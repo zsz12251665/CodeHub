@@ -3,8 +3,8 @@ using namespace std;
 int main()
 {
 	int n;
-	long m;
-	scanf("%d%ld",&n,&m);
+	int m;
+	scanf("%d%d",&n,&m);
 	if(n/2*(n/2-1+n%2)<m)// n is not enough to make m triples
 	{
 		printf("-1");
@@ -24,6 +24,6 @@ int main()
 			break;
 		}
 	for(int i=0;i<n;++i)// The rest of the a[i], making a[i]+a[j]==a[k] impossible
-		printf("%ld ",(100000-n+i)*10000);
+		printf("%d ",(100000-n+i)*10000);
 	return 0;
 }

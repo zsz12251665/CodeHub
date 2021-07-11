@@ -4,12 +4,12 @@ using namespace std;
 char s[100000],ans[100000]="1";
 int main()
 {
-	long n,cnt=0;
-	scanf("%ld",&n);
-	for(long i=0;i<n;++i)
+	int n,cnt=0;
+	scanf("%d",&n);
+	for(int i=0;i<n;++i)
 	{
 		scanf("%s",&s);
-		long len=strlen(s);
+		int len=strlen(s);
 		while(len>0 && s[len-1]=='0')// Count and remove the suffix 0s
 		{
 			++cnt;
@@ -25,7 +25,7 @@ int main()
 			strcpy(ans,s);
 	}
 	printf("%s",ans);// Output the answer
-	for(long i=0;i<cnt;++i)
+	for(int i=0;i<cnt;++i)
 		putchar('0');
 	return 0;
 }

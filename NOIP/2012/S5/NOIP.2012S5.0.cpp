@@ -1,7 +1,7 @@
 #include<cstdio>
 using namespace std;
-long left[4000000],right[4000000],min[4000000],lazytag[4000000],a[1000000];
-void init(long l,long r,long p)// Initialize the segment tree
+int left[4000000],right[4000000],min[4000000],lazytag[4000000],a[1000000];
+void init(int l,int r,int p)// Initialize the segment tree
 {
 	left[p]=l;
 	right[p]=r;
@@ -15,7 +15,7 @@ void init(long l,long r,long p)// Initialize the segment tree
 	init((l+r)/2+1,r,2*p+2);
 	min[p]=(min[2*p+1]<min[2*p+2])?min[2*p+1]:min[2*p+2];
 }
-void subtract(long d,long l,long r,long p)
+void subtract(int d,int l,int r,int p)
 {
 	if(l==left[p] && r==right[p])// If the range is covered, set the lazytag
 	{
@@ -23,7 +23,7 @@ void subtract(long d,long l,long r,long p)
 		lazytag[p]+=d;
 		return;
 	}
-	long mid=(left[p]+right[p])/2;
+	int mid=(left[p]+right[p])/2;
 	if(lazytag[p]!=0)// Pass down the lazytag
 	{
 		subtract(lazytag[p],left[p],mid,2*p+1);
@@ -43,18 +43,18 @@ void subtract(long d,long l,long r,long p)
 }
 int main()
 {
-	long n,m;
-	scanf("%ld%ld",&n,&m);
-	for(long i=0;i<n;++i)
-		scanf("%ld",&a[i]);
+	int n,m;
+	scanf("%d%d",&n,&m);
+	for(int i=0;i<n;++i)
+		scanf("%d",&a[i]);
 	init(0,n-1,0);
-	for(long i=0,d,s,t;i<m;++i)
+	for(int i=0,d,s,t;i<m;++i)
 	{
-		scanf("%ld%ld%ld",&d,&s,&t);
+		scanf("%d%d%d",&d,&s,&t);
 		subtract(d,s-1,t-1,0);
 		if(min[0]<0)// if the classroom is not enough
 		{
-			printf("-1\n%ld",i+1);
+			printf("-1\n%d",i+1);
 			return 0;
 		}
 	}

@@ -4,7 +4,7 @@ int main()
 {
 	int n,i,j;
 	scanf("%d%d%d",&n,&i,&j);
-	long ans=0;
+	int ans=0;
 	while(true)
 	{
 		if(i==1)// At the top border
@@ -32,6 +32,6 @@ int main()
 		--i;
 		--j;
 	}
-	printf("%ld",ans);
+	printf("%d",ans);
 	return 0;
 }

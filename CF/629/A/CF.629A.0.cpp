@@ -7,7 +7,7 @@ int main()
 	scanf("%d",&n);
 	for(int i=0;i<n;++i)
 		scanf("%s",&s[i]);
-	long ans=0;
+	int ans=0;
 	for(int i=0;i<n;++i)
 	{
 		int t=0;// Count the number of chocolates in the i-th row
@@ -21,6 +21,6 @@ int main()
 				++t;
 		ans+=t*(t-1)/2;
 	}
-	printf("%ld",ans);
+	printf("%d",ans);
 	return 0;
 }

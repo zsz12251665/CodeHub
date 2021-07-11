@@ -5,8 +5,8 @@ int main()
 	int t;
 	for(scanf("%d",&t);t>0;--t)
 	{
-		long n;
-		scanf("%ld",&n);
+		int n;
+		scanf("%d",&n);
 		if(n==1)
 		{
 			printf("-1\n");

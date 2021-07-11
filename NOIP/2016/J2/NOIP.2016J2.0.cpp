@@ -3,8 +3,8 @@ using namespace std;
 int main()
 {
 	int count=0;
-	long left,right,date;
-	scanf("%ld%ld",&left,&right);
+	int left,right,date;
+	scanf("%d%d",&left,&right);
 	for(int m=1;m<13;++m)// Enumerate the month
 		for(int d=1;d<32;++d)// Enumerate the date
 		{

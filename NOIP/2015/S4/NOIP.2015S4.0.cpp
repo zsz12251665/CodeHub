@@ -1,18 +1,18 @@
 #include<cstdio>
 using namespace std;
-long d[50001];
+int d[50001];
 int main()
 {
-	long l,n,m;
-	scanf("%ld%ld%ld",&l,&n,&m);
-	for(long i=0;i<n;++i)
-		scanf("%ld",&d[i]);
+	int l,n,m;
+	scanf("%d%d%d",&l,&n,&m);
+	for(int i=0;i<n;++i)
+		scanf("%d",&d[i]);
 	d[n]=l;
-	long left=0,right=l,ans;// Initialize the halving range
+	int left=0,right=l,ans;// Initialize the halving range
 	while(left<=right)
 	{
-		long mid=(left+right)/2,tmp=0,cnt=0;// tmp is the last rock that is not removed, cnt counts the number of the rocks that has been removed
-		for(long i=0;i<=n;++i)
+		int mid=(left+right)/2,tmp=0,cnt=0;// tmp is the last rock that is not removed, cnt counts the number of the rocks that has been removed
+		for(int i=0;i<=n;++i)
 			if(d[i]-tmp<mid)// Check if the distance is far enough
 				++cnt;
 			else
@@ -25,6 +25,6 @@ int main()
 			left=mid+1;
 		}
 	}
-	printf("%ld",ans);
+	printf("%d",ans);
 	return 0;
 }
